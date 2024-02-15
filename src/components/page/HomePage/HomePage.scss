@@ -1,0 +1,312 @@
+@import "../../../helpers/variables.scss";
+
+.home {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 28px 0 16px;
+    margin: 0 0 0 70px;
+    top: 0;
+    border-bottom: 1px solid $lightOrange;
+
+    @include onPhone {
+      border-bottom: none;
+      padding: 16px 14px;
+      margin: 0;
+    }
+
+    &--cont {
+      display: flex;
+      flex-direction: row;
+      gap: 26px;
+      align-items: center;
+      margin-right: 50px;
+
+      @include onPhone {
+        margin-right: 0px;
+      }
+    }
+  }
+
+  &__insta {
+    background-image: url("../../../img/Instagram.svg");
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__email {
+    background-image: url("../../../img/Gmail.svg");
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include onPhone {
+      margin-right: 0px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 350px;
+
+    margin: 0 70px;
+
+    @include onDesktop {
+      position: inherit;
+      flex-direction: column;
+      padding-bottom: 0px;
+      margin: 0 16px;
+   }
+
+    @include onPhoneMini {
+       position: relative;
+       margin: 0;
+    }
+  }
+
+  &__img {
+    background-image: url('../../../img/8ed3e0ed53791978e13b69cfd6241d69.jpg');
+    width: 838px;
+    height: 993px;
+    border-radius: 0px 300px 0px 0px;
+    transform: scaleX(-1);
+    background-size: contain;
+    position: absolute;
+    right: 0;
+
+    @include onPhone {
+      width: 304px;
+      height: 360px;
+      border-radius: 0px 100px 0px 0px;
+    }
+  }
+
+  &__img2 {
+    @include onPhone {
+     display: block;
+    }
+
+    @include onPhoneMini {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../../../img/Paragraph.png");
+      width: 98px;
+      height: 44px;
+      position: absolute;
+      z-index: 1;
+      bottom: 155px;
+      right: 0;
+    }
+  }
+
+  &__descr {
+    margin: 180px 0;
+
+    @include onDesktop {
+      margin: 1030px 0 40px 0;
+   }
+
+   @include onPhone {
+    margin: 180px 0 40px 16px;
+  }
+
+    @include onPhoneMini {
+      margin: 350px 0 0 16px;
+   }
+  }
+
+  &__text1 {
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 99px;
+    color: $blackColor;
+    margin: 24px 0;
+    width: 502px;
+  }
+
+  &__text2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 26px;
+    color: $grayColor;
+
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      color: $blackColor;
+      margin-top: 22px;
+   }
+  }
+
+  &__text3 {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 19px; 
+    color: $grayColor;
+    margin-bottom: 111px;
+    width: 321px;
+
+    @include onPhone {
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      margin: 20px 0 40px 0;
+      width: 213px;
+   }
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 9px 13px;
+    background-color: $yellow;
+    border: none;
+    border-radius: 50px;
+    width: 298px;
+    height: 72px;
+
+    @include onPhone {
+      padding: 7px;
+      width: 148px;
+      height: inherit;
+   }
+
+    &--text {
+      margin: 0;
+      width: max-content;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      color: $blackColor;
+      margin-right: 93px;
+
+      @include onPhone {
+        margin-right: 22px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%
+     }
+  
+    }
+
+    &--button {
+      background-color: $whiteColor;
+      border-radius: 100px;
+      padding: 15px;
+      border: none;
+
+      @include onPhone {
+        padding: 7px;
+     }
+
+      &--arr {
+        background-size: cover;
+        background-image: url('../../../img/ButtonArrow.svg');
+        width: 24px;
+        height: 24px;
+        margin: 0;
+
+        @include onPhone {
+          width: 16px;
+          height: 16px;
+       }
+      }
+    }
+  } 
+
+  &__items {
+    margin: 0 70px;
+    border-top: 1px solid $lightOrange;
+
+    @include onPhone {
+      margin: 0 16px;
+   }
+
+    &--header {
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+      color: $blackColor;
+      margin: 145px 0 32px;
+
+      @include onPhone {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        margin: 40px 0 10px;
+     }
+    }
+
+    &--cont {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      justify-content: space-between;
+      gap: 33px;
+
+      @include onDesktop {
+        gap: 8px;
+        display: flex;
+        justify-content: flex-start;  
+     }
+    }
+
+    &--img {
+      width: 300px;
+      height: 400px;
+      border-radius: 16px;
+
+      @include onPhone {
+        width: 100px;
+        height: 133px;
+     }
+    }
+
+    &--buttom {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+
+      background-color: $whiteColor;
+      border: 1px solid $gray4;
+      border-radius: 16px;
+      padding: 14px 0;
+      width: 369px;
+
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      color: $blackColor;
+
+      @include onPhone {
+        box-sizing: border-box;
+        margin-top: 20px;
+        width: 190px;
+        padding: 9px 0px;
+        border-radius: 50px;
+
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+     }
+    }
+  }
+}

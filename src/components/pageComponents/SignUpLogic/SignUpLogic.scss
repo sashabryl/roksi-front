@@ -1,0 +1,262 @@
+@import "../../../helpers/variables.scss";
+
+.signUpLogic {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+
+  @include onPhone {
+    width: 100%;
+  }
+
+  &__header {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: $blackColor;
+    text-align: center;
+
+    @include onPhone {
+      margin: 0;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+    color: $text2Color;
+    margin-top: 20px;
+
+    @include onPhone {
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+    }
+  }
+
+  &__input {
+    padding: 13px 16px;
+    border-radius: 12px;
+    border: 1px solid $gray4;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    font-family: 'Alegreya', serif;
+    flex-grow: 1;
+
+    &:focus-visible {
+      outline: 1px solid $borderHoverColor;
+    }
+
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+
+    &--box {
+      background-color: $whiteColor;
+      cursor: pointer;
+    }
+  }
+
+  &__error {
+    border: 1px solid $red;
+  }
+
+  &__errorText {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $red;
+    margin-top: 10px;
+  }
+
+  &__miniContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 20px;
+    background-image: url("../../../img/PaswwordHide.svg");
+
+    border: none;
+    background-color: transparent;
+    bottom: 14px;
+    right: 16px;
+    cursor: pointer;
+  }
+
+  &__show {
+    background-image: url("../../../img/PasswordShow.svg");
+  }
+
+  &__green {
+    background: $greenColor;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $whiteColor;
+    border: none;
+    text-align: center;
+
+
+    margin-top: 80px;
+
+    @include onPhone {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      margin-top: 60px;
+    }
+  }
+
+  &__white {
+    border: 1px solid $gray4;
+    background-color: $whiteColor;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    color: $text2Color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+
+    @include onPhone {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__button2 {
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+  @include onPhone {
+    padding: 11px;
+  }
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding-right: 8px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__google {
+    background-image: url("../../../img/Google.png");
+  }
+
+  &__or {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $grayColor;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &::before, &::after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+      border-top: 1px solid $grayColor;
+    }
+
+    @include onPhone {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+  }
+
+  &__text2 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+
+    @include onPhone {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__checkbox {
+    margin: 43px 0px 73px 0px;
+
+    @include onPhone {
+       margin: 16px 0px 64px 0px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 438px;
+    width: 100%;
+
+    @include onPhone {
+      margin-top: 40px;
+   }
+  }
+
+  &__logIn {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $greenColor;
+
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+   }
+  }
+
+  &__container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+}

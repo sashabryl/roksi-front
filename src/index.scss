@@ -1,0 +1,37 @@
+@import "./helpers/variables.scss";
+
+body {
+  margin: 0;
+  font-family: "Sofia Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: "Sofia Sans", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  font-family: "Sofia Sans", sans-serif;
+}
+
+*::placeholder {
+  font-family: "Sofia Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  color: $grayColor;
+
+  @include onPhone {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+  }
+}
+

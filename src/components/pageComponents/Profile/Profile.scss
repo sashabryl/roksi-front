@@ -1,0 +1,124 @@
+@import "../../../helpers/variables.scss";
+
+.profile{
+
+  &__img { 
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  &__profile {
+    width: 32px;
+    height: 32px;
+    background-image: url("../../../img/Profile.svg");
+
+    @include onPhone {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  &__img2 {
+    background-image: url("../../../img/Man.svg");
+  }
+
+  &__list {
+    padding: 10px 12px;
+    background-color: $whiteColor;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    height: max-content;
+    width: 250px;
+    margin-top: 5px;
+    position: absolute;
+    z-index: 1;
+
+    margin-top: 40px;
+
+    @include onPhone {
+      width: calc(100vw - 80px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__select {
+    list-style: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    color: $blackColor;
+    margin: 8px 0px;
+    cursor: pointer;
+
+    @include onPhone {
+      width: calc(100vw - 100px);
+      padding-left: 10px;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    color: $blackColor;
+    margin-left: 16px;
+  }
+
+  &__sing {
+    width: 16px;
+    height: 16px;
+    background-image: url("../../../img/Profile3.svg");
+  }
+
+  &__logIn {
+    width: 17.791px;
+    height: 18px;
+    background-image: url("../../../img/LogOut.svg");
+  }
+
+  &__pay {
+    width: 17.791px;
+    height: 18px;
+    background-image: url("../../../img/Pay.svg");
+  }
+
+  &__history {
+    width: 20px;
+    height: 18px;
+    background-image: url("../../../img/Time.svg");
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $grayscaleColor;
+    padding-bottom: 12px;
+
+    &--noBorder {
+      border-bottom: none;
+    }
+  }
+
+  &__cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  &__listContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 208px;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

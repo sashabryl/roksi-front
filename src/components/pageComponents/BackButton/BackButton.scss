@@ -1,0 +1,27 @@
+@import "../../../helpers/variables.scss";
+
+.backButton {
+  display: flex;
+  align-items: center;
+
+  @include onPhone {
+    margin-left: 16px;
+  }
+
+  cursor: pointer;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../../img/ArrowLeft.svg");
+    margin-right: 4px;
+  }
+
+  &__text {
+    color: $blackColor;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+  }
+}

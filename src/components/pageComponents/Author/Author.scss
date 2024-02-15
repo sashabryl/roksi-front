@@ -1,0 +1,148 @@
+@import "../../../helpers/variables.scss";
+
+.author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+
+  @include onPhone {
+    margin: 12px 16px 0 16px;
+ }
+
+  &__top {
+    margin-bottom: 174px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @include onPhone {
+      margin-bottom: 96px;
+   }
+  }
+
+  &__quotes {
+    background-size: contain;
+    background-image: url("../../../img/Quotes.svg");
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  &__text1 {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 110%;
+    letter-spacing: 0.16px;
+    margin: 24px 0;
+    color: $blackColor;
+
+    @include onPhone {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      margin: 21px 0 12px 0;
+   }
+  }
+  
+  &__text2 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    width: 426px;
+    text-align: center;
+    color: $gray4;
+    margin: 0;
+
+    @include onPhone {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      width: inherit;
+   }
+  }
+
+  &__text3 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    margin: 0;
+  }
+
+  &__girl {
+    background-image: url("../../../img/girl.png");
+    width: 70px;
+    height: 70px;
+    margin: 24px 0 12px 0;
+  }
+
+  &__container {
+    border-radius: 24px;
+    background-color: $darkWhiteColor;
+    padding: 32px 140px;  
+
+    @include onPhone {
+      padding: 28px 16px; 
+   }
+
+    &--header {
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 110%;
+      letter-spacing: 0.22px;
+      color: $blackColor;
+      text-align: center;
+      margin: 0 0 32px;
+
+      @include onPhone {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 110%; 
+        margin: 0 0 16px;
+     }
+    }
+  }
+
+  &__button {
+    padding: 15px 0;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+
+    @include onPhone {
+      padding: 10px 0;
+
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+   }
+
+    &--yellow {
+      background-color: $yellow;
+      border: none;
+      margin: 40px 0 12px;
+    }
+
+    &--white {
+      background-color: $darkWhiteColor;
+      border: 1px solid $gray4;
+    }
+  }
+
+}

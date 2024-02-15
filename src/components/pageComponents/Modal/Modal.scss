@@ -1,0 +1,361 @@
+@import "../../../helpers/variables.scss";
+
+.modal {
+  position: fixed;
+  z-index: 11;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $blackColor;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    border-bottom: 1px solid $liteGrayColor;
+    box-shadow: 6px 0px 6px -6px rgba(0, 0, 0, 0.12), -6px 0px 6px -6px rgba(0, 0, 0, 0.12);
+    width: 560px;
+
+    margin-top: 26px;
+    padding: 28px 16px;
+  
+    @include onPhone {
+      width: auto;
+      box-shadow: none;
+      border-bottom: none;
+    }
+  }
+
+  &__category {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  &__background {
+    background-color: $whiteColor;
+    border-radius: 16px;
+    padding: 48px;
+    margin: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include onPhone {
+      margin: 0;
+      border-radius: 0;
+      padding: 0;
+      align-items: normal;
+    }
+  }
+
+  &__slide {
+    width: 600px;
+    height: 700px;
+    border-radius: 16px;
+    display: inline-block;
+    object-fit: cover;
+
+    @include onPhone {
+      width: 100%;
+      margin-top: 25px;
+    }
+  }
+
+  &__carousel {
+    width: 100%;
+    height: 700px;
+    text-align: center;
+
+    @include onPhone {
+      width: 100%;
+    }
+  }
+
+  &__like {
+    background-image: url("../../../img/Favorite.svg");
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    left: 20px;
+    bottom: 24px;
+    background-size: contain;
+
+    @include onPhone {
+      left: 5px;
+      bottom: 5px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__chart {
+    background-image: url("../../../img/Chart.svg");
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 32px;
+    border: none;
+    right: 20px;
+    bottom: 24px;
+    cursor: pointer;
+    background-size: contain;
+
+    @include onPhone {
+      right: 5px;
+      bottom: 5px;
+      width: 29px;
+      height: 24px;
+    }
+  }
+
+  &__minicontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+    color: $blackColor;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    color: $blackColor;
+  }
+
+  &__button {
+    width: 470px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: none;
+    background-color: $greenColor;
+
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    color: $whiteColor;
+    margin: auto;
+    cursor: pointer;
+
+    @include onPhone {
+      width: 100%;
+    }
+  }
+
+  &__type {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    margin-right: 12px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $text2Color;
+  }
+
+  &__number {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $greenColor;
+    margin-right: 32px;
+  }
+
+  &__slash {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+    color: $text2Color;
+    margin-right: 32px;
+  }
+
+  &__descr {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 560px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    box-shadow: -6px 6px 6px -6px rgba(0, 0, 0, 0.12), 6px 6px 6px -6px rgba(0, 0, 0, 0.12), 0px 6px 6px -6px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    padding: 0 16px 16px 16px;
+
+    @include onPhone {
+      width: auto;
+      box-shadow: none;
+      border-bottom: 1px solid $liteGrayColor;
+      border-radius: 0;
+    }
+  }
+
+  &__minicontainer2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px solid $darkWhiteColor;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  &__together {
+    &--header {
+      text-align: center;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 110%; 
+      color: $text2Color;
+    }
+
+    &--card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      padding: 35px;
+
+      @include onPhone {
+        gap: 10px;
+        padding: 16px;
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 48px;
+    padding: 80px;
+    margin: 34px 170px 88px 120px;
+    border-left: 1px solid $liteGrayColor;
+    border-right: 1px solid $liteGrayColor;
+
+    @include onPhone {
+      border: none;
+      padding: 16px;
+      margin: 0px ;
+      gap: 8px;
+    }
+  }
+
+  &__like2 {
+    width: 240px;
+    height: 240px;
+    background-image: url("../../../img/BigLike.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onPhone {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__text2 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; 
+    color: $blackColor;
+
+    @include onPhone {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__text3 {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $text2Color;
+    margin-bottom: 48px;
+
+    @include onPhone {
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+    }
+  }
+
+  &__arrow {
+    width: 8px;
+    height: 14px;
+    background-image: url("../../../img/RightArr.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onPhone {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__button2 {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onPhone {
+      padding: 16px;
+    }
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.cross__none {
+  @include onPhone {
+    display: none;
+  }
+}

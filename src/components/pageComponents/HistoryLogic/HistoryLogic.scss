@@ -1,0 +1,88 @@
+@import "../../../helpers/variables.scss";
+
+.historyLogic {
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  border-left: 1px solid #AEAEB4;
+  padding-left: 70px;
+  gap: 32px;
+  
+  @include onPhone {
+    border-left: none;
+    padding-left: 0;
+    gap: 20px
+  }
+
+  &__header {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    text-align: center;
+
+    @include onPhone {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      margin-top: 20px;
+    }
+  }
+
+  &__chard {
+    max-height: 320px;
+    max-width: 636px;
+
+    @include onPhone {
+      max-height: inherit;
+      max-width: inherit;
+    }
+  }
+
+  &__container {
+    padding: 50px 28px 50px 28px;
+
+    @include onPhone {
+      padding: 22px 12px 12px 12px;
+    }
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__search {
+    background-image: url("../../../img/Search.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    margin-top: 64px;
+
+    @include onPhone {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  &__no {
+    color: $blackColor;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; 
+    margin: 12px 0px 40px 0;
+    
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+}

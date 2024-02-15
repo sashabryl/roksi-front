@@ -1,0 +1,53 @@
+@import "../../../helpers/variables.scss";
+
+.any {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__dandruff {
+    width: 240px;
+    height: 240px;
+
+    margin-bottom: 56px;
+
+    background-image: url("../../../img/NotFoundSearch.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onPhone {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__found {
+    color: $blackColor;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; 
+    margin-bottom: 16px;
+
+    @include onPhone {
+      font-size: 16px;
+      line-height: 120%;
+      margin-bottom: 10px;
+    }
+
+    &--descr {
+      color: $darkGrayColor;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+
+      @include onPhone {
+        font-size: 12px;
+        line-height: 130%; 
+      }
+    }
+  }
+}

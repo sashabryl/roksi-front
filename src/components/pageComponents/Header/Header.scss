@@ -1,0 +1,225 @@
+@import "../../../helpers/variables.scss";
+
+.header {
+    &__mainContainer {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 70px;
+      align-items: center;
+      text-align: center;
+
+      @include onPhone {
+        flex-direction: column;
+        padding: 16px 8px;
+        gap: 12px;
+      }
+    }
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+
+      @include onPhone {
+        gap: 20px;
+      }
+
+      &--row-reverse {
+        @include onPhone {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    &__nav {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      @include onPhone {
+        display: none;
+      }
+
+      &--link {
+        margin-left: 32px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%;
+        text-decoration: none;
+        cursor: pointer;
+        color: $blackColor;
+        text-align: center;
+      }
+    }
+
+    &__img { 
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin: 0;
+    }
+
+    &__chart {
+      width: 28.286px;
+      height: 28.235px;
+      background-image: url("../../../img/Chart.svg");
+
+      @include onPhone {
+        width: 14px;
+        height: 13px;
+      }
+
+      &--cont {
+        padding: 6px 19px;
+        cursor: pointer;
+        border-radius: 14px;
+        background-color: $yellow;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        @include onPhone {
+          margin-right: 20px;
+          padding: 6px 9px;
+        }
+      }
+    }
+
+    &__favorites {
+      width: 15px;
+      height: 22px;
+      background-image: url("../../../img/HeaderLike.svg");
+      background-position: center;
+     
+      @include onPhone {
+        margin-left: 0px;
+        width: 25px;
+        height: 25px;
+      }
+
+      &--cont {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $darkWhiteColor;
+        border: 1px solid $darkWhiteColor;
+        width: 15px;
+        height: 20px;
+        border-radius: 12px;
+        padding: 10px 13px;
+        margin-left: 50px;
+      }
+    }
+
+    &__languageContainer {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      background-color: $darkWhiteColor;
+      border: 1px solid $darkWhiteColor;
+      border-radius: 12px;
+      cursor: pointer;
+      padding: 8px 4px 8px 8px;
+
+      &--2 {
+        background-color: $whiteColor;
+        border: none;
+      }
+
+      @include onPhone {
+        padding: 4px;
+      }
+    }
+
+    &__languages {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../../img/Language.svg");
+      padding: 0;
+      margin: 0;
+
+      @include onPhone {
+        width: 16px;
+        height: 16px;
+      }
+
+      &--text {
+        color: $text2Color;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        margin-left: 3px;
+      }
+
+      &--button {
+        background-image: url("../../../img/MiniArrow.svg");
+        width: 24px;
+        height: 24px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
+
+      &--select {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+
+    &__select {
+      list-style: none;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      color: $blackColor;
+      margin: 10px 0px;
+      cursor: pointer;
+    }
+
+    &__list {
+      position: absolute;
+      top: 100%;
+      margin-top: 4px;
+      padding: 0px 10px;
+      background-color: $darkWhiteColor;
+      z-index: 1;
+      border-radius: 12px;
+      width: 80px;
+    }
+
+    &__cont {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+    }
+
+    &__amount {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      color: $whiteColor;
+      background-color: $red;
+      border-radius: 100px;
+      padding: 2px 6px;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include onPhone {
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 120%; 
+        padding: 2px 4px;
+      }
+    }
+}

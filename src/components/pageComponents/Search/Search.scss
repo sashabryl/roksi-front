@@ -1,0 +1,62 @@
+@import "../../../helpers/variables.scss";
+
+.form {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  height: 24px;
+  width: 300px;
+  padding: 8px;
+  border: 1px solid $darkWhiteColor;
+  background-color: $darkWhiteColor;
+  transition: all 0.5s ease;
+
+  &.focused {
+    background-color: $whiteColor;
+    border: 1px solid $liteGrayColor
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    max-width: 326px;
+    background-color: transparent;
+
+    & ::placeholder {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 22px;
+      color: $grayColor;
+      letter-spacing: -0.408px;
+    }
+
+  }
+
+  &__search {
+    background-image: url("../../../img/Search.svg");
+  }
+
+  &__cross {
+    background-image: url("../../../img/close.svg");
+  }
+
+
+  &__img {
+    padding-right: 12px;
+    margin-right: 8px;
+
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+
+    border: none;
+    background-color: transparent;
+  }
+
+  &__label {
+    display: flex;
+    align-items: stretch;
+  }
+}

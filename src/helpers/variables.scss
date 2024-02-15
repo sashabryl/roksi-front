@@ -1,0 +1,35 @@
+$whiteColor: #fff;
+$greenColor: #1B998B;
+$grayColor: #99999D;
+$darkGrayColor: #615F5F;
+$blackColor: #333333;
+$liteGrayColor: #AEAEB4;
+$grayscaleColor: #EBEBEB;
+$darkWhiteColor: #F5F5FA;
+$text2Color: #615F5F;
+$backgroundColor: #CBCCCE;
+$gray4: #84848D;
+$red:#D70015;
+$borderHoverColor:#535456;
+$lightOrange: #D7AA80;
+$yellow: #D8D012;
+$blackColor2: #2F3237;
+$lightGray: #F9F9F9;
+
+@mixin onPhone {
+  @media (max-width:780px) {
+    @content;
+  }
+}
+
+@mixin onPhoneMini {
+  @media (max-width:540px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (max-width:1200px) {
+    @content;
+  }
+}

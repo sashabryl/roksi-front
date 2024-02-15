@@ -1,0 +1,150 @@
+@import "../../../helpers/variables.scss";
+
+.chart {
+  padding: 0px 170px;
+  box-sizing: border-box;
+
+  @include onDesktop {
+    padding: 0px 30px;
+  }
+
+  @include onPhone {
+    padding: 0px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+    align-items: center;
+    text-align: center;
+
+    @include onPhone {
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0px 16px;
+    }
+
+    &--top {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    &--cont {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  &__buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-end;
+    flex-wrap: wrap;
+
+    margin-top: 85px;
+
+    @include onPhone {
+      margin: 40px 16px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+
+    @include onPhone {
+      padding: 20px 16px 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+
+    @include onPhone {
+      margin: 0px 16px 72px 16px;
+    }
+  }
+
+  &__no {
+    width: 533px;
+    height: 400px;
+    background-image: url("../../../img/NoChart.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+
+    @include onPhone {
+      width: 74.62px;
+      height: 56px; 
+    }
+  }
+
+  &__bigText {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: $blackColor;
+    margin: 48px 0px 15px 0px;
+
+    @include onPhone {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+      margin: 32px 0px 10px 0px;
+    }
+  }
+
+  &__miniText {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: $text2Color;
+    margin: 0;
+    margin-bottom: 55px;
+
+    @include onPhone {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 48px;
+    }
+  }
+
+  &__textHeader {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    color: $blackColor;
+    text-align: center;
+    margin: 0;
+
+    @include onPhone {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 88px 0px 72px 0px;
+
+    @include onPhone {
+      margin: 32px 0px 40px 0px;
+    }
+  }
+}

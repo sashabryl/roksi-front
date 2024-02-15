@@ -1,0 +1,65 @@
+@import "../../../helpers/variables.scss";
+
+.homeInfo {
+  padding: 104px 70px;
+  background-color: $backgroundColor;
+
+  @include onPhone {
+    display: none;
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__rowReverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin: 104px 0px;
+  }
+
+  &__miniCont {
+    max-width: 730px;
+  }
+
+  &__img {
+    width: 443px;
+    height: 370px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 16px;
+
+    &--1 {
+      // background-image: url("../../../img/ded010e0e3d117255cb1901edc147dc3.jpg");
+    }
+
+    &--2 {
+      // background-image: url("../../../img/ff73280f53c43429e472cc1b99e01d0d.jpg");
+    }
+
+    &--3 {
+      // background-image: url("../../../img/f164ade5cf316d58e1ab3feabc4e5587.jpg");
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $darkWhiteColor;
+  }
+
+  &__bigText {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: $whiteColor;
+  }
+}

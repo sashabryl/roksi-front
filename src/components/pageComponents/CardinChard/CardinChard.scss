@@ -1,0 +1,197 @@
+@import "../../../helpers/variables.scss";
+
+.cardinChard {
+  display: flex;
+  flex-direction: row;
+  border-radius: 16px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+
+  @include onPhone {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 16px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    cursor: pointer;
+
+    @include onPhone {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__headCont {
+    max-height: 419px;
+    max-width: 419px;
+
+    @include onPhone {
+      width: 100%;
+      max-width: inherit;
+      justify-content: space-between;
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: row;
+      align-items: center;
+      padding-right: 16px;
+    }
+  }
+
+  &__container {
+    padding: 95px 45px 95px 72px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include onPhone {
+      padding: 20px 16px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  &__name {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: $blackColor;
+
+    @include onDesktop {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+  }
+
+  &__price {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+
+    @include onDesktop {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+  }
+
+  &__count {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+
+    &--button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 12px;
+      gap: 24px;
+      border: 1px solid $darkWhiteColor;
+      border-radius: 16px;
+
+      @include onPhone {
+        padding: 4px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        max-height: 50px;
+      }
+
+      &--minus {
+        background-image: url("../../../img/Minus.svg");
+        width: 24px;
+        height: 24px;
+        border: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+
+        @include onPhone {
+          width: 24px;
+          height: 20px;
+        }
+
+        &--active {
+          background-image: url("../../../img/HowerMinus.svg");
+          background-position: center;
+        }
+      }
+
+      &--plus {
+        background-image: url("../../../img/Plus.svg");
+        width: 18.75px;
+        height: 18.75px;
+        border: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+
+        @include onPhone {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      &--count {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 110%;
+        color: $greenColor;
+        margin: 0;
+
+        @include onPhone {
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%;
+        }
+      }
+    }
+
+    &--remove {
+      display: flex;
+      flex-direction: row;
+      border: none;
+      background-color: transparent;
+      gap: 8px;
+      cursor: pointer;
+
+      &--dump {
+        background-image: url("../../../img/Dump.svg");
+        width: 14px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: 0;
+      }
+
+      &--text {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%; 
+        color: $gray4;
+        margin: 0;
+      }
+    }
+  }
+}

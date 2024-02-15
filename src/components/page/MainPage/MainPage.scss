@@ -1,0 +1,127 @@
+@import "../../../helpers/variables.scss";
+
+.main {
+  padding: 0 70px ;
+  &__topOptions {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    background-color: $lightGray;
+    border-radius: 16px;
+
+    @include onPhone {
+      flex-direction: column-reverse;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0px;
+    }
+  }
+
+  &__miniContainer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include onPhone {
+      gap: none;
+      justify-content: center;
+    }
+  }
+
+  &__watch {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    @include onPhone {
+      gap: 8px;
+      width: 300px;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+  }
+
+  &__defolt {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    color: $yellow;
+    margin: 0px 30px;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  &__shown {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $grayColor;
+  }
+
+  &__insta {
+    background-image: url("../../../img/Instagram.svg");
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 69px;
+    padding: 40px 0px;
+
+    @include onPhone {
+      padding: 16px;
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+
+  &__button {
+    background-color: $whiteColor;
+    border-radius: 12px;
+    border: 1px solid $liteGrayColor;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; 
+    color: $blackColor;
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 13px;
+    max-width: 480px;
+  }
+
+  &__buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+
+    @include onPhone {
+      margin-bottom: 56px;
+      padding: 16px;
+    }
+  }
+
+  &__img {
+    width: 635px;
+    height: 780px;
+    border-radius: 24px;
+
+    &--cont {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+
+      margin-top: 140px;
+    }
+  }
+}

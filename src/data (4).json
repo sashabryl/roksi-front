@@ -1,0 +1,408 @@
+[
+    {
+        "id": 3,
+        "name": "Пенал \"Standart\"",
+        "name_eng": "Penal \"Standart\"",
+        "price": "290.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 25,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            6
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_Standart-62f9d6fd-13e1-4613-b953-dfa756c5f85d.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_Standart-9407f473-e009-4040-a713-51c6dc81bed7.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_Standart-503c067e-ce91-4f40-b6e6-b1d003367ec9.jpg"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Пенал з відділенням \"Standart Plus\"",
+        "name_eng": "Penal with a compartment \"Standart Plus\"",
+        "price": "320.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 30,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            12
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%D0%BC_Standart_Plus-45a998ee-2321-4062-b6d1-3_z2btST3.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%D0%BC_Standart_Plus-a602991e-4dd5-4f6a-b145-bb596e3f0ede.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%D0%BC_Standart_Plus-4847bb90-9efd-4eea-9092-4b7c649826e8.jpg"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Пенал з відділннями \"Standart Maxi\"",
+        "name_eng": "Penal with a compartment \"Standart Maxi\"",
+        "price": "370.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 35,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            12
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%BD%D0%BD%D1%8F%D0%BC%D0%B8_Standart_Maxi-355a77f6-e947-461d-9b92-8_5SdfgRU.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%BD%D0%BD%D1%8F%D0%BC%D0%B8_Standart_Maxi-7841a35e-9ea3-44a1-9268-94d7a0af039b.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B2%D1%96%D0%B4%D0%B4%D1%96%D0%BB%D0%BD%D0%BD%D1%8F%D0%BC%D0%B8_Standart_Maxi-44e4e88f-7a77-4a47-ace1-43d1f3a9872b.jpg"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Пенал для однієї пляшки \"Wine\"",
+        "name_eng": "Penal for one bottle \"Wine\"",
+        "price": "250.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 12,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            3,
+            8,
+            6
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%BE%D0%B4%D0%BD%D1%96%D1%94%D1%97_%D0%BF%D0%BB%D1%8F%D1%88%D0%BA%D0%B8_Wine-f9d89350-7409-4dbf-ba22-c4ae5dab6cc9.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%BE%D0%B4%D0%BD%D1%96%D1%94%D1%97_%D0%BF%D0%BB%D1%8F%D1%88%D0%BA%D0%B8_Wine-4f634155-3bc6-49a4-8947-28597ee0e77e.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%BE%D0%B4%D0%BD%D1%96%D1%94%D1%97_%D0%BF%D0%BB%D1%8F%D1%88%D0%BA%D0%B8_Wine-39188ef0-b8e0-43ae-a7f9-beb79dc484c8.jpg"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Ящик “Rustic\"",
+        "name_eng": "Box “Rustic\"",
+        "price": "275.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 30,
+        "width": 25,
+        "height": 13,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Ящики",
+        "subcategory_name_eng": "Boxes",
+        "buying_with_it": [],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%AF%D1%89%D0%B8%D0%BA_Rustic-59faced1-3753-460b-81ac-59240df3a9b3.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%AF%D1%89%D0%B8%D0%BA_Rustic-57d742bd-4b07-4f63-a02a-87ed927349b6.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%AF%D1%89%D0%B8%D0%BA_Rustic-c993bb1c-0213-4e74-918c-87313028a5be.jpg"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Пенал для двох пляшок \"Wine Plus\"",
+        "name_eng": "Penal for two bottles \"Wine Plus\"",
+        "price": "295.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 21,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            6,
+            9,
+            10
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%B4%D0%B2%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Plus-a2b70804-0d92-4692-9e96-a7e_FEJQLcN.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%B4%D0%B2%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Plus-3158eb61-c549-4eae-8644-f50a7ddec668.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D0%B4%D0%B2%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Plus-41959241-c89d-497e-8e88-a254bdac0da8.jpg"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Пенал для трьох пляшок \"Wine Maxi\"",
+        "name_eng": "Penal for three bottles \"Wine Maxi\"",
+        "price": "355.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 30,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            11,
+            8
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D1%82%D1%80%D1%8C%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Maxi-0735120f-b40c-4535-b342-80_j7NS9Kq.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D1%82%D1%80%D1%8C%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Maxi-b6471581-579b-4dd3-8e3b-610a9f44102c.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B4%D0%BB%D1%8F_%D1%82%D1%80%D1%8C%D0%BE%D1%85_%D0%BF%D0%BB%D1%8F%D1%88%D0%BE%D0%BA_Wine_Maxi-ef3660ac-8636-4cbe-87f2-c82b12569ede.jpg"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Пенал з ажурною кришкою \"Ajour\"",
+        "name_eng": "Penal with a latticed lid \"Ajour\"",
+        "price": "400.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 34,
+        "width": 25,
+        "height": 10,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Упаковка",
+        "subcategory_name_eng": "Packaging",
+        "buying_with_it": [
+            8
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B0%D0%B6%D1%83%D1%80%D0%BD%D0%BE%D1%8E_%D0%BA%D1%80%D0%B8%D1%88%D0%BA%D0%BE%D1%8E_Ajour-c339cdd8-ca56-4699-ab58-4563684be852.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B0%D0%B6%D1%83%D1%80%D0%BD%D0%BE%D1%8E_%D0%BA%D1%80%D0%B8%D1%88%D0%BA%D0%BE%D1%8E_Ajour-1bb002be-9f28-4bac-bd88-6f20410dfd35.jpg"
+            },
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%9F%D0%B5%D0%BD%D0%B0%D0%BB_%D0%B7_%D0%B0%D0%B6%D1%83%D1%80%D0%BD%D0%BE%D1%8E_%D0%BA%D1%80%D0%B8%D1%88%D0%BA%D0%BE%D1%8E_Ajour-e384ddb9-bff4-4343-acd0-99ea8d668c01.jpg"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Дошка дерев’яна",
+        "name_eng": "Wooden desk",
+        "price": "550.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 30,
+        "width": 20,
+        "height": 4,
+        "material": "ясен, дуб",
+        "material_eng": "Ash, oak",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Дошки для нарізання",
+        "subcategory_name_eng": "Сutting boards",
+        "buying_with_it": [
+            9
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%94%D0%BE%D1%88%D0%BA%D0%B0_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8F%D0%BD%D0%B0-b3d2f2d5-adb6-41f0-9bda-9752e6ad26e5.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%94%D0%BE%D1%88%D0%BA%D0%B0_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D1%8F%D0%BD%D0%B0-0bfdd0a2-5a34-4963-8337-b12300ddede6.jpg"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Штендер рекламний",
+        "name_eng": "Advertising stand",
+        "price": "590.00",
+        "description": "Стильний рекламний штендер для ваших рекламних повідомлень.",
+        "description_eng": "Stylish advertising stand for your promotional messages.",
+        "length": 30,
+        "width": 50,
+        "height": 100,
+        "material": "сосна",
+        "material_eng": "Pine",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Меблі",
+        "subcategory_name_eng": "Furniture",
+        "buying_with_it": [
+            4,
+            5
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%A8%D1%82%D0%B5%D0%BD%D0%B4%D0%B5%D1%80_%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D0%BD%D0%B8%D0%B9-530c71da-23e2-495e-95f3-f9000292f44b.jpg",
+        "images": []
+    },
+    {
+        "id": 13,
+        "name": "Дошка для нарізання \"М'ясник\"",
+        "name_eng": "Cutting Board \"Meat Master\"",
+        "price": "600.00",
+        "description": "Дерев'яна дошка ідеально підходить для нарізання м'яса",
+        "description_eng": "Wooden cutting board, perfect for meat slicing.",
+        "length": 45,
+        "width": 24,
+        "height": 4,
+        "material": "ясен, дуб",
+        "material_eng": "Ash, oak",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Дошки для нарізання",
+        "subcategory_name_eng": "Сutting boards",
+        "buying_with_it": [],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%94%D0%BE%D1%88%D0%BA%D0%B0_%D0%B4%D0%BB%D1%8F_%D0%BD%D0%B0%D1%80%D1%96%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F_%D0%9C%D1%8F%D1%81%D0%BD%D0%B8%D0%BA-f46ef8f3-307e-4555-a9c1-da46cc346213.jpg",
+        "images": []
+    },
+    {
+        "id": 14,
+        "name": "Ящик \"Ukrainstic\"",
+        "name_eng": "Box \"Ukrainstic\"",
+        "price": "315.00",
+        "description": "Можливе нанесення напису, малюнку чи логотипу. Вартість залежить від розміру та складності, рахується окремо.",
+        "description_eng": "Possible application of text, artwork, or logo. The cost depends on the size and complexity and is calculated separately.",
+        "length": 35,
+        "width": 25,
+        "height": 13,
+        "material": "фанера",
+        "material_eng": "Plywood",
+        "category_name": "Вироби з фанери",
+        "category_name_eng": "Plywood products",
+        "subcategory_name": "Ящики",
+        "subcategory_name_eng": "Boxes",
+        "buying_with_it": [
+            15
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%AF%D1%89%D0%B8%D0%BA_Ukrainstic-c4facba2-4e55-434c-84cb-9a818d02ba9c.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%AF%D1%89%D0%B8%D0%BA_Ukrainstic-988bfacc-31bf-411c-b622-ae30677f3079.jpg"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Стелаж \"Maxi\"",
+        "name_eng": "Shelf \"Maxi\"",
+        "price": "2600.00",
+        "description": "Модний та практичний стелаж 'Maxi' для організації простору в вашому будинку або офісі.",
+        "description_eng": "Stylish and practical 'Maxi' shelf for organizing space in your home or office.",
+        "length": 50,
+        "width": 100,
+        "height": 200,
+        "material": "сосна",
+        "material_eng": "Pine",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Меблі",
+        "subcategory_name_eng": "Furniture",
+        "buying_with_it": [
+            14
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Maxi-767063ee-1286-4b5b-9460-b93c4d541519.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Maxi-0eec536a-8605-4d7f-bd9e-a2217ac36736.jpg"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Стелаж \"Maxi Plus\"",
+        "name_eng": "Shelf \"Maxi Plus\"",
+        "price": "3000.00",
+        "description": "Модний та практичний стелаж 'Maxi Plus' для організації простору в вашому будинку або офісі.",
+        "description_eng": "Stylish and practical 'Maxi Plus' shelf for organizing space in your home or office.",
+        "length": 50,
+        "width": 200,
+        "height": 200,
+        "material": "сосна",
+        "material_eng": "Pine",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Меблі",
+        "subcategory_name_eng": "Furniture",
+        "buying_with_it": [
+            17
+        ],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Maxi_Plus-1722a531-d577-429b-821d-1877481821fd.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Maxi_Plus-61bbd363-bbe8-45d2-a168-d396f794911c.jpg"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Стелаж \"Mini\"",
+        "name_eng": "Shelf \"Mini\"",
+        "price": "2000.00",
+        "description": "Модний та практичний стелаж 'Mini' для організації простору в вашому будинку або офісі.",
+        "description_eng": "Stylish and practical 'Mini' shelf for organizing space in your home or office.",
+        "length": 50,
+        "width": 50,
+        "height": 2000,
+        "material": "сосна",
+        "material_eng": "Pine",
+        "category_name": "Вироби з дерева",
+        "category_name_eng": "Wooden products",
+        "subcategory_name": "Меблі",
+        "subcategory_name_eng": "Furniture",
+        "buying_with_it": [],
+        "main_image": "http://127.0.0.1:8000/media/uploads/images/products/main_%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Mini-6a61d8df-8f2a-4cde-a059-8eea245316ca.jpg",
+        "images": [
+            {
+                "image": "http://127.0.0.1:8000/media/uploads/images/products/%D0%A1%D1%82%D0%B5%D0%BB%D0%B0%D0%B6_Mini-c3326780-193d-4ab2-a94c-53e36f98d738.jpg"
+            }
+        ]
+    }
+]

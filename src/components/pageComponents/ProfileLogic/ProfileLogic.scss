@@ -1,0 +1,267 @@
+@import "../../../helpers/variables.scss";
+
+.profileLogic {
+  padding: 40px 180px 76px 180px;
+
+  @include onPhone {
+   padding: 0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px;
+    align-items: center;
+    text-align: center;
+    
+    @include onPhone {
+      justify-content: center;
+      padding: 8px 0 0 0 ;
+    }
+  }
+
+  &__container {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include onPhone {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+    margin-right: 70px;
+
+    @include onPhone {
+      flex-direction: row;
+      gap: 32px;
+      justify-content: center;
+      margin-right: 0px;
+      margin-bottom: 24px;
+    }
+
+    
+    &--box {
+      @include onPhone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+      }
+    }
+  }
+
+  &__link {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 0.5px solid $greenColor;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    &--red {
+      border: 0.5px solid $red;
+      cursor: pointer;
+    }
+
+    @include onPhone {
+      gap: 32px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      box-sizing: border-box;
+    }
+  }
+  
+  &__active {
+    background-color: $greenColor;
+    color: $whiteColor;
+  }
+
+  &__profile {
+    width: 16px;
+    height: 16px;
+    background-image: url("../../../img/Profile2.svg");
+
+    &-active {
+      background-image: url("../../../img/ProfileWhite.svg");
+    }
+  }
+
+  &__payment {
+    width: 20px;
+    height: 16px;
+    background-image: url("../../../img/PayBlack.svg");
+
+    &-active {
+      background-image: url("../../../img/PayWhite.svg");
+    }
+  }
+
+  &__history {
+    width: 20px;
+    height: 18px;
+    background-image: url("../../../img/TimeBlack.svg");
+
+    &-active {
+      background-image: url("../../../img/TimeWhite.svg");
+    }
+  }
+
+  &__logout {
+    width: 17.791px;
+    height: 18px;
+    background-image: url("../../../img/LogOutBlack.svg");
+  }
+
+  &__mainContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    padding-left: 70px;
+
+    @include onPhone {
+      border-left: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    &--border {
+      border-left: 1px solid $liteGrayColor;
+    }
+  }
+
+  &__profileImg {
+    background-image: url("../../../img/Man.svg");
+    width: 82px;
+    height: 82px;
+  }
+
+  &__miniCont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 34px;
+
+    @include onPhone {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__name {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+  }
+
+  &__location {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+    color: $grayColor;
+
+    @include onPhone {
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; 
+    }
+  }
+
+  &__phone {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $text2Color;
+
+    @include onPhone {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%; 
+    }
+  }
+
+  &__inputBox {
+    padding: 20px 16px;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+
+    @include onPhone {
+      margin-top: 31px;
+    }
+  }
+
+  &__headerText {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    text-align: center;
+    margin-bottom: 55px;
+
+    @include onPhone {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__button2 {
+    @include onPhone {
+      margin: 30px 0 0 0;
+    }
+  }
+
+  &__warning {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: #007AFF;
+    text-align: center;
+    margin-top: 22px;
+
+    @include onPhone {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 130%;
+    }
+  }
+}

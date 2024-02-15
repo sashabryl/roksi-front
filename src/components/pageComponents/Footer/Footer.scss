@@ -1,0 +1,51 @@
+@import "../../../helpers/variables.scss";
+
+.footer {
+  margin-top: 96px;
+  
+  @include onPhone {
+    margin-top: 80px;
+ }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    columns: $blackColor;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__insta {
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../../img/Instagram.svg");
+    margin-bottom: 64px;
+  }
+
+  &__made {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: $gray4;
+    padding: 41px;
+    border-top: 1px solid $lightOrange;
+    text-align: center;
+    margin: 0 70px;
+
+    @include onPhone {
+      margin: 0 16px;
+   }
+  }
+}

@@ -1,0 +1,154 @@
+@import "../../../helpers/variables.scss";
+
+.filter {
+  padding: 12px;
+
+  @include onPhone {
+    padding: 0px;
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../../img//Filter2.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0;
+
+    @include onPhone {
+      margin-left: 0px;
+      width: 16px;
+      height: 16px;
+    }
+
+    &--container {
+      padding: 10px 9px;
+      box-sizing: border-box;
+      border: none;
+      background-color: $whiteColor;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.12);
+      border-radius: 10px;
+
+      cursor: pointer;
+
+      @include onPhone {
+        padding: 5px 4px;
+      }
+    }
+  }
+
+  &__radio {
+    accent-color: $greenColor;
+    outline-color: 1px solid $greenColor;
+    margin: 15px 12px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 27px;
+  }
+
+  &__header {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $blackColor;
+    margin: auto; 
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  &__cross {
+    background-image: url("../../../img/Cross.svg");
+    width: 24px;
+    height: 24px;
+
+    background-color: $whiteColor;
+    border: none;
+    cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__container {
+    padding: 10px 12px;
+    background-color: $whiteColor;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    width: 305px;
+    height: max-content;
+    margin-top: 5px;
+    position: absolute;
+    z-index: 1;
+
+    @include onPhone {
+      width: calc(100vw - 80px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__button {
+    background-color: $greenColor;
+    border-radius: 12px;
+    border: none;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    padding: 13px;
+    color: $whiteColor;
+    flex-grow: 1;
+    cursor: pointer;
+  }
+
+  
+  &__cancel {
+    background-color: $whiteColor;
+    border-radius: 12px;
+    border: 1px solid $liteGrayColor;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; 
+    color: $blackColor;
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 13px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $grayscaleColor;
+    width: 300px;
+    cursor: pointer;
+
+    @include onPhone {
+      width: calc(100vw - 100px);
+    }
+  }
+
+  &__buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__button {
+    padding: 13px 101px;
+    cursor: pointer;
+  }
+}
+
+

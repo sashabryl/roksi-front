@@ -1,0 +1,80 @@
+[
+    {
+        "id": 3,
+        "name": " дерева",
+        "name_eng": "Wooden products",
+        "subcategories": [
+            {
+                "name": "Дошки для нарізання",
+                "name_eng": "Сutting boards"
+            },
+            {
+                "name": "Меблі",
+                "name_eng": "Furniture"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": " фанери",
+        "name_eng": "Plywood products",
+        "subcategories": [
+            {
+                "name": "Упаковка",
+                "name_eng": "Packaging"
+            },
+            {
+                "name": "Ящики",
+                "name_eng": "Boxes"
+            }
+        ]
+    },
+
+    {
+      "id": 5,
+      "name": " фанери",
+      "name_eng": "Plywood products",
+      "subcategories": [
+          {
+              "name": "Упаковка",
+              "name_eng": "Packaging"
+          },
+          {
+              "name": "Ящики",
+              "name_eng": "Boxes"
+          }
+      ]
+  },
+
+  {
+    "id": 6,
+    "name": " фанери",
+    "name_eng": "Plywood products",
+    "subcategories": [
+        {
+            "name": "Упаковка",
+            "name_eng": "Packaging"
+        },
+        {
+            "name": "Ящики",
+            "name_eng": "Boxes"
+        }
+    ]
+},
+
+{
+  "id": 7,
+  "name": " фанери",
+  "name_eng": "Plywood products",
+  "subcategories": [
+      {
+          "name": "Упаковка",
+          "name_eng": "Packaging"
+      },
+      {
+          "name": "Ящики",
+          "name_eng": "Boxes"
+      }
+  ]
+}
+]

@@ -1,0 +1,16 @@
+@import "../../../helpers/variables.scss";
+
+.logInLogic {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; 
+  color: $blackColor;
+  border-bottom: 1px solid $blackColor;
+
+  @include onPhone {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+}
