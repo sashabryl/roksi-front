@@ -4,6 +4,7 @@ import "./Modal.scss";
 import { BackButton } from "../BackButton/BackButton";
 import { Slide } from "react-slideshow-image";
 
+import innn from "../../../img/8ed3e0ed53791978e13b69cfd6241d69.jpg"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
@@ -14,6 +15,7 @@ import { CartItem } from "../../../helpers/ChartInterface";
 import axios from "axios";
 import { changeChartAction } from "../../../app/slice/ChartSlice";
 import { useNavigate } from "react-router";
+import { Author } from "../Author/Author";
 
 type Props = {
   card: Cherwood,
@@ -54,7 +56,6 @@ export const Modal: React.FC<Props> = ({ card, hendlCloseModal }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   
-const togetherBuy = cherwood.filter((item) => card.buying_with_it.includes(item.id));
 const shouldShow = screenWidth <= 780;
 let inChart = false;
 
@@ -130,6 +131,7 @@ if (isInChart.products.length > 0) {
             {card.images.map((photo, index) => (
               <div key={index} className="each-slide">
                 <img 
+                  src={innn} 
                   className={`modal__slide`} 
                 />
               </div>
@@ -140,22 +142,17 @@ if (isInChart.products.length > 0) {
         <div className="modal__header">
           <LikeAndChart id={card.id} noAbsolute={true}/>
 
-          <div className="card__header">
+          <div className="modal__header--cont">
             <h1 className="modal__name">
               {languageReducer.language 
                 ?card.name_eng
                 :card.name
               }
             </h1>
-            <p className="modal__price">{`₴ ${card.price}`}</p>
+            <p className="modal__price">{`$ ${card.price}`}</p>
           </div>
 
-          <button className="modal__button" onClick={handleChart}>
-            {languageReducer.language 
-              ?('Buy now')
-              :("Купити зараз")
-            }
-          </button>
+
         </div>
 
         <div className="modal__descr">
@@ -174,17 +171,7 @@ if (isInChart.products.length > 0) {
             </p>
           </div>
 
-          <div className="modal__minicontainer2">
-            <p className="modal__type">
-            {languageReducer.language 
-              ?('Length:')
-              :("Довжина:")
-            }
-            </p>
-            <p className="modal__number">{card.length}</p>
-
-            <p className="modal__slash">/</p>
-
+          <div className="modal__minicontainer3">
             <p className="modal__type">
             {languageReducer.language 
               ?('Wight:')
@@ -205,37 +192,15 @@ if (isInChart.products.length > 0) {
             <p className="modal__number">{card.height}</p>
           </div>
 
-          <div className="modal__minicontainer2">
-            <p className="modal__type">
+          <button className="modal__button" onClick={handleChart}>
             {languageReducer.language 
-              ?('Material:')
-              :("Матеріал:")
+              ?('Buy now')
+              :("Купити зараз")
             }
-            </p>
-            <p className="modal__text">
-            {languageReducer.language 
-              ?card.material_eng
-              :card.material
-            }
-            </p>
-          </div>
-        </div>
- 
-        <div className="modal__together">
-          <h1 className="modal__together--header">
-            {languageReducer.language 
-              ?('Together with this item buy')
-              :("Разом з ними товарами купують")
-            }
-          </h1>
-
-          <div className="modal__together--card">
-            {togetherBuy.map(item => (
-              <Card cherwood={item} key={item.id}/>
-            ))}
-          </div>
+          </button>
         </div>
 
+        {shouldShow && <Author />}
         {shouldShow && <Footer />}
       </div>
     </div>

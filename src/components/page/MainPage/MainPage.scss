@@ -2,6 +2,11 @@
 
 .main {
   padding: 0 70px ;
+
+  @include onPhone {
+    padding: 0 16px;
+  }
+
   &__topOptions {
     margin-bottom: 30px;
     display: flex;
@@ -16,6 +21,7 @@
       justify-content: space-around;
       align-items: center;
       padding: 0px;
+      background-color: $whiteColor;
     }
   }
 
@@ -39,7 +45,7 @@
       gap: 8px;
       width: 300px;
       justify-content: space-between;
-      padding: 0 16px;
+      padding: 0;
     }
   }
 
@@ -81,6 +87,9 @@
       padding: 16px;
       justify-content: center;
       gap: 10px;
+      flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      overflow: scroll;
     }
   }
 

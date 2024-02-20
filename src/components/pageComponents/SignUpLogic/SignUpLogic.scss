@@ -111,17 +111,15 @@
     background-image: url("../../../img/PasswordShow.svg");
   }
 
-  &__green {
-    background: $greenColor;
+  &__yellow {
+    background: $yellow;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    color: $whiteColor;
+    color: $blackColor;
     border: none;
     text-align: center;
-
-
     margin-top: 80px;
 
     @include onPhone {
@@ -242,7 +240,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    color: $greenColor;
+    color: $yellow;
 
     @include onPhone {
       font-size: 14px;

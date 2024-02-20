@@ -89,7 +89,7 @@ export const Select = () => {
         <button 
           className={classNames("select__container", 
           isSelect && 'select__container--selected')}
-          onClick={() => setIsSelect(!isSelect)}
+          onClick={() => handleSelectClick}
         >
           {languageReducer.language 
              ?('Glasses')
@@ -100,7 +100,7 @@ export const Select = () => {
         <button 
           className={classNames("select__container", 
           isSelect && 'select__container--selected')}
-          onClick={() => setIsSelect(!isSelect)}
+          onClick={() => handleSelectClick}
         >
           {languageReducer.language 
              ?('Pictures')
@@ -111,7 +111,7 @@ export const Select = () => {
         <button 
           className={classNames("select__container", 
           isSelect && 'select__container--selected')}
-          onClick={() => setIsSelect(!isSelect)}
+          onClick={() => handleSelectClick}
         >
           {languageReducer.language 
              ?('Christmas bubbles')

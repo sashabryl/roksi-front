@@ -90,28 +90,18 @@
     }
 
     &__favorites {
-      width: 15px;
-      height: 22px;
-      background-image: url("../../../img/HeaderLike.svg");
-      background-position: center;
-     
+      width: 40px;
+      height: 40px;
+      background-color: $darkWhiteColor;
+      border: 1px solid $darkWhiteColor;
+      border-radius: 10px;
+      background-image: url("../../../img/Favorite.svg");
+      margin-left: 50px;
+
       @include onPhone {
         margin-left: 0px;
         width: 25px;
         height: 25px;
-      }
-
-      &--cont {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $darkWhiteColor;
-        border: 1px solid $darkWhiteColor;
-        width: 15px;
-        height: 20px;
-        border-radius: 12px;
-        padding: 10px 13px;
-        margin-left: 50px;
       }
     }
 

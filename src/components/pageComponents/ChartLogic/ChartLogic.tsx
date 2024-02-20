@@ -68,7 +68,6 @@ const inChart = cherwood.filter((product) => chart.products.some((productId) => 
 
         <div className="chart__header--cont">
           {(registrationReducer.registration.access 
-            || registrationReducer.registration.refresh
             ) &&(
              <NavLink 
               to="/favorites" 

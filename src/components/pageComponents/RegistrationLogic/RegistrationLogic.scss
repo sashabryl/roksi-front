@@ -29,7 +29,15 @@
 
   &__img {
     border-radius: 16px;
-    width: 60%;
-    height: 100%;
+    width: 644px;
+    height: 735px;
+
+    @include onPhone {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      margin-top: 60px;
+    }
   }
 }

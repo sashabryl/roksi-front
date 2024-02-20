@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import img from "../../../img/70c2dd25b9f27adb6ca0239ea8d5be53.jpg"
 import "./RegistrationLogic.scss";
 import { SignUpLogic } from "../SignUpLogic/SignUpLogic";
 import { useEffect, useState } from "react";
@@ -40,7 +40,7 @@ export const RegistrationLogic:React.FC<Props> = ({logIn}) => {
         ?(<LogInLogic />)
         :(<SignUpLogic />)
       }
-        {!shouldShow &&(<img  alt="img" className="registration__img"/>)}
+        {!shouldShow &&(<img src={img} alt="img" className="registration__img"/>)}
       </div>
     </div>
   );

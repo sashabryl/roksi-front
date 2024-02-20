@@ -105,7 +105,7 @@ const inChart = chart.products.find((product) => product.id === card.id);
                 :("Довжина:")
               }
               </p>
-              <p className="modal__number">{card.length}</p>
+              <p className="modal__number">{card.height}</p>
 
               <p className="modal__slash">/</p>
 

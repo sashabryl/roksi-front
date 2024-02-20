@@ -176,6 +176,7 @@
     border-radius: 50px;
     width: 298px;
     height: 72px;
+    cursor: pointer;
 
     @include onPhone {
       padding: 7px;

@@ -180,7 +180,7 @@ export const LogInLogic = () => {
         
       <div className="signUpLogic__container">
         <button
-          className='signUpLogic__green signUpLogic__button2'
+          className='signUpLogic__yellow signUpLogic__button2'
           onClick={handleLogin}
         >
           {languageReducer.language

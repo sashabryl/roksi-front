@@ -5,7 +5,6 @@ export interface Cherwood {
   price: string;
   description: string;
   description_eng: string;
-  length: number;
   width: number;
   height: number;
   material: string;
@@ -14,7 +13,6 @@ export interface Cherwood {
   category_name_eng: string;
   subcategory_name: string;
   subcategory_name_eng: string;
-  buying_with_it: number[];
   main_image: string;
   images: Image[];
 }

@@ -67,7 +67,7 @@
   &__link {
     padding: 12px 16px;
     border-radius: 12px;
-    border: 0.5px solid $greenColor;
+    border: 0.5px solid $yellow;
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -95,7 +95,7 @@
   }
   
   &__active {
-    background-color: $greenColor;
+    background-color: $yellow;
     color: $whiteColor;
   }
 

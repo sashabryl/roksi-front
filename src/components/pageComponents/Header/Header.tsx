@@ -69,11 +69,9 @@ export const Header = () => {
               </NavLink>
             </div>
 
-            {/* {registrationReducer.registration.access && ( */}
-              <div className="header__favorites--cont">
-                <NavLink to="/favorites" className="header__favorites header__img" />
-              </div>
-            {/* )} */}
+            {registrationReducer.registration.access && (
+              <NavLink to="/favorites" className="header__favorites header__img" />
+            )}
 
             <LanguageChange />
             <Profile />

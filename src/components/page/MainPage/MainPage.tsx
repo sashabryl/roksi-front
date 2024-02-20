@@ -109,7 +109,7 @@ const handleMoreImage = () => {
       <div className="main__miniContainer main__miniContainer--colum">
         <div className="main__watch">
         <Select />
-          <div 
+          {windowWidth > 780 &&(<div 
             className="main__defolt" 
             onClick={() =>setNext(15)}
           >
@@ -117,7 +117,7 @@ const handleMoreImage = () => {
               ?('View all')
               :('Усі')
             }
-          </div>
+          </div>)}
         </div>
       </div>
 
@@ -145,7 +145,7 @@ const handleMoreImage = () => {
       </div>)
       :(<NotFoundSearch />)}
       
-      <div className="main__buttonContainer">
+     {windowWidth > 780 &&( <div className="main__buttonContainer">
       {next < stateCard?.length && (
         <button 
           className="main__button" 
@@ -158,14 +158,15 @@ const handleMoreImage = () => {
          </button>
         )}
     
-      </div>
+      </div>)}
 
       <Author />
 
-      <div className="main__img--cont">
+      {windowWidth > 780 &&(<div className="main__img--cont">
         <img src={flover} alt="art" className="main__img" />
         <img src={vaza} alt="art" className="main__img" />
       </div>
+      )}
     </div>
     <Footer />
     </>

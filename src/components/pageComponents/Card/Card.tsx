@@ -45,7 +45,7 @@ export const Card: React.FC<Props> = ({ cherwood }) => {
           <p className="card__size--number">{`${cherwood.price}`}</p>
         </div>
 
-        <div className="card__header--1">
+        <div className="card__header--2">
           <h1 className="card__name">
             {languageReducer.language 
               ?cherwood.name_eng

@@ -21,8 +21,6 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
-    border-bottom: 1px solid $liteGrayColor;
     box-shadow: 6px 0px 6px -6px rgba(0, 0, 0, 0.12), -6px 0px 6px -6px rgba(0, 0, 0, 0.12);
     width: 560px;
 
@@ -33,6 +31,18 @@
       width: auto;
       box-shadow: none;
       border-bottom: none;
+    }
+
+    &--cont {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 56px;
+      flex-direction: row;
+
+      @include onPhone {
+        margin-top: 32px;
+      }
     }
   }
 
@@ -129,19 +139,33 @@
   }
 
   &__name {
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 120%; 
+    font-weight: 500;
+    line-height: 120%;
     color: $blackColor;
+
+    @include onPhone {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
   }
 
   &__price {
-    font-size: 24px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 110%;
+    line-height: 120%;
     color: $blackColor;
+
+    @include onPhone {
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
   }
 
   &__button {
@@ -151,7 +175,7 @@
     align-items: center;
     border-radius: 12px;
     border: none;
-    background-color: $greenColor;
+    background-color: $yellow;
 
     font-size: 18px;
     font-style: normal;
@@ -176,11 +200,18 @@
   }
 
   &__text {
-    font-size: 14px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
     color: $text2Color;
+
+    @include onPhone {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
   }
 
   &__number {
@@ -188,7 +219,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    color: $greenColor;
+    color: $yellow;
     margin-right: 32px;
   }
 
@@ -219,6 +250,7 @@
       box-shadow: none;
       border-bottom: 1px solid $liteGrayColor;
       border-radius: 0;
+      padding: 0 16px 28px 16px;
     }
   }
 
@@ -228,7 +260,14 @@
     align-items: flex-start;
     border-bottom: 1px solid $darkWhiteColor;
     width: 100%;
-    flex-wrap: wrap;
+  }
+
+  &__minicontainer3 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 48px;
   }
 
   &__together {
@@ -347,6 +386,147 @@
     @include onPhone {
       padding: 16px;
     }
+  }
+}
+
+.carousel {
+  margin-top: 50px;
+  margin-bottom: 75px;
+  padding: 40px 70px;
+
+  @include onPhone {
+    padding: 0;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    color: $darkGrayColor;
+
+    
+    @include onPhone {
+    margin-left: 16px;
+    }
+  }
+  
+  &__add {
+    display: flex;
+    height: 48px;
+    padding: 26px 130px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: $yellow;
+    border: none;
+
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    color: $whiteColor;
+
+    position: absolute;
+    left: 60px;
+    bottom: 100px;
+
+    cursor: pointer;
+
+    @include onPhone {
+      width: 160px;
+      height: 20px;
+      padding: 20px;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+
+      left: 30px;
+      bottom: 40px;
+    }
+  }
+
+  &__slide {
+    background-position: center;
+    width: 1300px;
+    height: 868px;
+
+    @include onPhone {
+      height: 350px;
+      width: 100%;
+    }
+  }
+
+  &__button {
+    width: 56px;
+    height: 56px;
+    border-radius: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    background-color: rgba($darkGrayColor, 0.7);
+    cursor: pointer;
+    margin: 80px;
+
+    @include onPhone {
+      margin: 30px;
+    }
+
+    &--prev {
+      background-image: url(../../../img/LeftArrow.svg);
+    }
+
+    &--next {
+      background-image: url(../../../img/RightArr.svg);
+    }
+  }
+}
+
+.carousel__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 868px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  position: relative;
+  max-width:none;
+
+
+  @include onPhone {
+    height: 350px;
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+.react-slideshow-container + ul.indicators {
+  gap: 14px;
+}
+
+.react-slideshow-wrapper.slide {
+  width: 100%;
+  overflow: hidden;
+}
+
+.react-slideshow-container + ul.indicators .each-slideshow-indicator:before {
+  background: $yellow !important;
+
+  @media (max-width: 640px) {
+    display: none !important;
+  }
+}
+
+.each-slide {
+  position: relative;
+
+  @include onPhone {
+    width: 100%;
   }
 }
 

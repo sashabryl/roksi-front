@@ -78,13 +78,6 @@ export const HistoryLogic = () => {
               <div className="cardinChard___descr">
                 <div className="modal__minicontainer2">
                   <p className="modal__type">
-                    {languageReducer.language ? 'Length:' : 'Довжина:'}
-                  </p>
-                  <p className="modal__number">{card.length}</p>
-
-                  <p className="modal__slash">/</p>
-
-                  <p className="modal__type">
                     {languageReducer.language ? 'Wight:' : 'Bara:'}
                   </p>
                   <p className="modal__number">{card.width}</p>
