@@ -8,6 +8,7 @@ import { Card } from "../../pageComponents/Card/Card";
 import { useAppSelector } from "../../../app/hooks";
 import { NavLink } from "react-router-dom";
 import { UserType } from "../../../helpers/UserType";
+import { Author } from "../../pageComponents/Author/Author";
 
 
 export const Like = () => {
@@ -112,6 +113,8 @@ useEffect(() => {
           </button>
         </NavLink>
         )}
+
+        {shouldShow && <Author />}
         {shouldShow && <Footer />}
       </div>
     </div>

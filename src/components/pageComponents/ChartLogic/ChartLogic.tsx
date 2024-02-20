@@ -9,6 +9,7 @@ import { BackButton } from "../BackButton/BackButton";
 import { OrderForm } from "../OrderForm/OrderForm";
 import { Footer } from "../Footer/Footer";
 import { OrderChartLogic } from "../OrderChartLogic/OrderChartLogic";
+import { Author } from "../Author/Author";
 
 type Props = {
   isOrder: boolean,
@@ -104,6 +105,7 @@ const inChart = cherwood.filter((product) => chart.products.some((productId) => 
         <OrderChartLogic inChart={inChart} handleRemove={handleRemove}/>
       )}
      
+      {windowWidth && <Author />}
       {windowWidth < 780 &&( <Footer />)}
     </div>
   );
