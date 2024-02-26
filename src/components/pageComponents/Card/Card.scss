@@ -138,12 +138,19 @@
   }
 
   &__size {
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; 
+    line-height: 120%;
     color: $gray4;
     margin: 0;
+
+    @include onPhone {
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+    }
 
     &--img {
       display: flex;
@@ -169,12 +176,19 @@
     }
 
     &--number {
-      font-size: 14px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 120%;
       color: $gray4;
       margin: 0;
+
+      @include onPhone {
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+      }
     }
   }
 

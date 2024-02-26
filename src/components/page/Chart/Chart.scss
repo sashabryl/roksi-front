@@ -143,6 +143,7 @@
     flex-direction: column;
     gap: 32px;
     margin: 88px 0px 72px 0px;
+    align-items: center;
 
     @include onPhone {
       margin: 32px 0px 0px 0px;

@@ -78,6 +78,7 @@ export async function getChart(): Promise<CartItem> {
     });
 }
 
+
 export async function getUser(access: string): Promise<UserType | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/user/me/';
   const headers = {
@@ -123,6 +124,7 @@ export async function getUser(access: string): Promise<UserType | undefined> {
 
             registrationState.registration.access = '';
             registrationState.registration.refresh = '';
+            
             throw new Error('Token is invalid or expired');
           } else {
             const registrationState = store.getState().registration;
@@ -139,6 +141,7 @@ export async function getUser(access: string): Promise<UserType | undefined> {
     return undefined;
   }
 }
+
 export async function getBooking(access): Promise<BookingItem[] | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
 
@@ -161,11 +164,11 @@ export async function getBooking(access): Promise<BookingItem[] | undefined> {
       return response.json();
     })
     .then((jsonData: BookingItem[]) => {
-      return jsonData; // Повернення значення даних
+      return jsonData;
     })
     .catch(error => {
       console.error(error);
-      return undefined; // Повернення undefined у випадку помилки
+      return undefined; 
     });
 }
 

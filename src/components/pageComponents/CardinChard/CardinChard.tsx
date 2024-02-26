@@ -68,20 +68,6 @@ const inChart = chart.products.find((product) => product.id === card.id);
         src={card.main_image}
         onClick={hendlModal}
       />
-
-    {windowWidth < 780 &&(
-      <div className="cardinChard__count--button">
-        <button 
-          className="cardinChard__count--button--minus" 
-          onClick={() => hendleActChart('remove_one')}
-        />
-          <p className="cardinChard__count--button--count">{inChart?.quantity}</p>
-          <button 
-            className="cardinChard__count--button--plus" 
-            onClick={() => hendleActChart('add')}
-          />
-      </div>
-      )}
     </div>
 
     <div className="cardinChard__container">
@@ -98,38 +84,8 @@ const inChart = chart.products.find((product) => product.id === card.id);
           </div>
         </div>
 
-        <div className="cardinChard___descr">
-            <div className="modal__minicontainer2">
-              <div className="cardinChard__miniCont">
-              <div className="cardinChard__miniCont--2">
-                <p className="modal__type">
-                  {languageReducer.language 
-                    ?('Size')
-                    :("Розмір")
-                  }
-                </p>
-                <p className="cardinChard__heightImg" />
-              </div>
-
-              <p className="modal__number">{card.height}</p>
-              </div>
-             
-
-              <div className="cardinChard__miniCont">
-              <div className="cardinChard__miniCont--2">
-                <p className="modal__type">
-                  {languageReducer.language 
-                    ?('Size')
-                    :("Розмір")
-                  }
-                </p>
-                <p className="cardinChard__widthImg" />
-              </div>
-              <p className="modal__number">{card.width}</p>
-              </div>
-            </div>
-
-            <div className="modal__minicontainer2">
+        {windowWidth < 780 &&( 
+          <div className="modal__minicontainer2">
               <p className="modal__type">
               {languageReducer.language 
                 ?('Material:')
@@ -143,25 +99,105 @@ const inChart = chart.products.find((product) => product.id === card.id);
                 }
               </p>
             </div>
+          )}
+
+        <div className="cardinChard___descr">
+        {windowWidth > 780 ?( 
+        <div className="cardinChard__minicontainer">
+             <div className="cardinChard__miniCont cardinChard__miniCont--border">
+              <div className="cardinChard__miniCont--2">
+                <p className="modal__type">
+                  {languageReducer.language 
+                    ?('Size')
+                    :("Розмір")
+                  }
+                </p>
+                <p className="cardinChard__heightImg" />
+              </div>
+
+              <p className="cardinChard__number">
+                {`${card.height} 
+                  ${languageReducer.language 
+                    ?('sm')
+                    :("см")}`
+                }</p>
+              </div>
+             
+
+              <div className="cardinChard__miniCont">
+              <div className="cardinChard__miniCont--2">
+                <p className="modal__type">
+                  {languageReducer.language 
+                    ?('Size')
+                    :("Розмір")
+                  } 
+                </p>
+                <p className="cardinChard__widthImg" />
+              </div>
+              <p className="cardinChard__number">
+                {`${card.width} 
+                  ${languageReducer.language 
+                    ?('sm')
+                    :("см")
+                  }`
+                }</p>
+              </div>
+            </div>
+             ) : (
+            <div className="cardinChard__minicontainer">
+             <div className="cardinChard__miniCont">
+              <p className="modal__type">
+              {languageReducer.language 
+                ?('Wight:')
+                :("Ширина:")
+              }
+              
+              </p>
+              <p className="cardinChard__number">
+                {`${card.width} 
+                  ${languageReducer.language 
+                    ?('sm')
+                    :("см")
+                  }`
+                }</p>
+
+              <p className="cardinChard__slash">/</p>
+
+              <p className="modal__type">
+              {languageReducer.language 
+                ?('Height:')
+                :("Висота:")
+              }
+              </p>
+              <p className="cardinChard__number">
+                {`${card.height} 
+                  ${languageReducer.language 
+                    ?('sm')
+                    :("см")
+                  }`
+                }</p>
+              </div>
+            </div>
+             )}
           </div>
 
           <div className="cardinChard__count">
-            {windowWidth > 780 &&(
-            <div className="cardinChard__count--button">
-              <button 
-                className={classNames("cardinChard__count--button--minus", {
-                  'cardinChard__count--button--minus--active': inChart?.quantity !== 1,
-                })}  
-                onClick={() => hendleActChart('remove_one')}
-              />
-                <p className="cardinChard__count--button--count">{inChart?.quantity}</p>
-                <button 
-                  className="cardinChard__count--button--plus" 
-                  onClick={() => hendleActChart('add')}
-                />
+         {windowWidth > 780 &&( 
+          <div className="cardinChard__minicontainer">
+              <p className="modal__type">
+              {languageReducer.language 
+                ?('Material:')
+                :("Матеріал:")
+              }
+              </p>
+              <p className="modal__text">
+                {languageReducer.language 
+                  ?card.material_eng
+                  :card.material
+                }
+              </p>
             </div>
-            )}
-
+          )}
             <button 
               className="cardinChard__count--remove"
               onClick={() => hendleActChart('remove')}

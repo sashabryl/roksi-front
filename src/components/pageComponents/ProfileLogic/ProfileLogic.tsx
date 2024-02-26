@@ -26,14 +26,16 @@ export const ProfileLogic: React.FC<Props> = ({profile}) => {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    navigate('/')
-    LogOut(registrationReducer.registration.access);
-    dispatch(addRegistrationAction({
-      access: '',
-      refresh: '',
-    }));
-  };
+    navigate('/');
 
+    setTimeout(() => {
+      LogOut(registrationReducer.registration.access);
+      dispatch(addRegistrationAction({
+        access: '',
+        refresh: '',
+      }));
+    }, 1000);
+  };
 
   useEffect(() => {
     const handleResize = () => {

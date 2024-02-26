@@ -14,6 +14,7 @@ export const OrderForm = () => {
   const registrationReducer = useAppSelector(state => state.registration);
 
   const [user, setUser] = useState<UserType>();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [firstName, setFirstName] = useState<string | undefined>(user?.first_name || '');
   const [lastName, setLastName] = useState<string | undefined>(user?.last_name || '');
   const [userCity, setCity] = useState<string | undefined>(user?.city || '');
@@ -63,6 +64,18 @@ export const OrderForm = () => {
     .then((userFromServer) => {
       setChart(userFromServer)
     })
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -116,12 +129,13 @@ export const OrderForm = () => {
   };
   return (
     <div className="orderForm">
-      <div className="orderForm__header">
+     {windowWidth > 780 &&( 
+     <div className="orderForm__header">
        {languageReducer.language 
           ?('Contacts')
           :('Контакти')
         }
-      </div>
+      </div>)}
 
       <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox">
@@ -369,7 +383,6 @@ export const OrderForm = () => {
               className={classNames("signUpLogic__input", {
                 'signUpLogic__error': (telNumber === '' && errors.erorr1 ),
               })}
-              placeholder='000 000 000 00'
               value={telNumber}
               onChange={handleNumber}
             />
@@ -396,14 +409,33 @@ export const OrderForm = () => {
       </div>
       </div>
 
-      <div className="orderForm__header">
-       {languageReducer.language 
-          ?('Payment')
-          :('Платіж')
-        }
-      </div>
+      {windowWidth > 780 &&(
+        <div className="orderForm__header">
+        {languageReducer.language 
+            ?('Payment')
+            :('Платіж')
+          }
+        </div>
+      )}
       <div className="orderForm__container">
-        <div className="profileLogic__inputBox orderForm__inputBox">
+        <div className="profileLogic__inputBox orderForm__inputBox orderForm__inputBox--border">
+        {windowWidth < 780 &&(
+        <div className="orderForm__total--cont">
+            <div className="orderForm__total">
+              {languageReducer.language 
+                ?('Shipping')
+                :('Доставка')
+              }
+            </div>
+            <div className="orderForm__total--2">
+              {languageReducer.language 
+                ?('Individually')
+                :('Індивідуально')
+              }
+            </div>
+          </div>
+          )}
+
           <div className="orderForm__total--cont">
             <div className="orderForm__total">
               {languageReducer.language 
@@ -416,13 +448,14 @@ export const OrderForm = () => {
             </div>
           </div>
 
+          {windowWidth > 780 &&(
           <div className="profileLogic__warning profileLogic__warning--right" >
             {
               languageReducer.language
                 ? 'The cost of delivery is paid by the customer*'
                 : 'Вартість доставки оплачує замовник*'
             }
-        </div>
+        </div>)}
         
         <div className="orderForm__button--cont">
           <button
@@ -441,13 +474,14 @@ export const OrderForm = () => {
           <p className="signUpLogic__button2--arr" />
           </button>
 
+          {windowWidth > 780 &&(
           <div className="profileLogic__warning profileLogic__warning--black" >
             {
               languageReducer.language
                 ? 'The product will be successfully ordered only after full payment. Payment by card*'
                 : 'Товар буде успішно замовлений тільки після повної оплати. Оплата карткою*'
             }
-        </div>
+        </div>)}
         </div>
         
         </div>

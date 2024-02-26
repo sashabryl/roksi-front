@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect,  useState } from "react";
 import "./MainPage.scss";
 import { Cherwood } from "../../../helpers/Cherwood";
 import { getCherwood, getOptions } from "../../../helpers/api";
@@ -6,7 +6,6 @@ import { Card } from "../../pageComponents/Card/Card";
 import { Select } from "../../pageComponents/Select/Select";
 import { useAppSelector } from "../../../app/hooks";
 import { useSearchParams } from "react-router-dom";
-import { getFilteredCherwood } from "../../../helpers/FilteredCherwood";
 import { NotFoundSearch } from "../../pageComponents/NotFoundSearch/NotFoundSearch";
 import { Header } from "../../pageComponents/Header/Header";
 import { Footer } from "../../pageComponents/Footer/Footer";
@@ -16,12 +15,9 @@ import flover from "../../../img/flover.jpg";
 import vaza from "../../../img/vaza.jpg";
 import { Option, Subcategory } from "../../../helpers/Options";
 
-const imagePerRow = 6;
-
 export const MainPage = () => {
 const [cherwood, setCherwood] = useState<Cherwood[]>([]);
 const [ophtions, setOpthions] = useState<Option[]>([]);
-const [next, setNext] = useState(imagePerRow);
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 const [searchQuery] = useSearchParams();
@@ -74,10 +70,6 @@ names.forEach(singleName => {
   }
 });
 
-const handleMoreImage = () => {
-  setNext(next + imagePerRow);
-};
-
   return (
     <>
     <Header />
@@ -117,18 +109,10 @@ const handleMoreImage = () => {
             <div className="main__cardContainer">
               {filteredCards
                 .filter(card => card.subcategory_name_eng === subcategory.name_eng)
-                .slice(0, next)
                 .map(prod => (
                   <Card cherwood={prod} key={prod.id} />
                 ))}
             </div>
-            {next < filteredCards.length && windowWidth > 780 && (
-              <div className="main__buttonContainer">
-              <button className="main__button" onClick={handleMoreImage}>
-                {languageReducer.language ? 'Show more' : 'Показати більше'}
-              </button>
-              </div>
-            )}
           </div>
         ))
       ) : (

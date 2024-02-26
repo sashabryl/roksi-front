@@ -9,6 +9,7 @@ import { addRegistrationAction } from "../../../app/slice/RegistrSlice";
 
 export const LogInLogic = () => {
   const languageReducer = useAppSelector((state) => state.language);
+  const registration = useAppSelector((state) => state.registration);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -63,19 +64,17 @@ export const LogInLogic = () => {
     event.preventDefault();
 
     try {
-      await axios.post('http://127.0.0.1:8000/api/user/login/', {
+      const response = await axios.post('http://127.0.0.1:8000/api/user/login/', {
         email: values.email,
         password: values.password,
-      })
-      .then(response => {
-        dispatch(addRegistrationAction({
-          access: response.data.access,
-          refresh: response.data.refresh,
-        }))
-      })
-   
+      });
+      
+      registration.registration.access = response.data.access;
+      registration.registration.refresh = response.data.refresh;
+     
       navigate('/mainPage');
     } catch (error) {
+      console.log(error);
       setErrors({
         email: 'An error occurred during login.',
         emailUkr: 'При вході виникла помилка.',

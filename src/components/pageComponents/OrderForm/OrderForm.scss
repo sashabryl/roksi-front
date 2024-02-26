@@ -69,6 +69,12 @@
     @include onPhone {
       margin-top: 0 !important;
     }
+
+    &--border {
+      @include onPhone {
+        border-top: 1px solid $grayscaleColor;
+      }
+    }
   }
 
   &__total {
@@ -78,12 +84,30 @@
     line-height: 110%;
     color: $blackColor;
 
+    @include onPhone {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+
     &--cont {
       display: flex;
       justify-content: space-between;
       background-color: $darkWhiteColor;
       border-radius: 12px;
       padding: 12px;
+
+      @include onPhone {
+        background-color: $whiteColor;
+      }
+    }
+
+    &--2 {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
     }
   }
 
@@ -92,6 +116,11 @@
     justify-content: center;
     align-items: center;
     width: 381px;
+    
+    @include onPhone {
+      width: 288px;
+    }
+
     
     &--cont {
       display: flex;

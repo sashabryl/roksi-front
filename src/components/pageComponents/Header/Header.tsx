@@ -79,7 +79,7 @@ useEffect(() => {
               </NavLink>
             </div>
 
-            {isSelect === true && (
+            {isSelect === true && registrationReducer.registration.access !== '' && (
               <NavLink to="/favorites" className="header__favorites header__img" />
             )}
 

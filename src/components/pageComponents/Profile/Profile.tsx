@@ -43,7 +43,7 @@ export const Profile = () => {
       onClick={() => setIsSelect(!isSelect)}
     >
     <div className={classNames("profile__profile profile__img", {
-        'profile__img2': isSelect2 === true,
+        'profile__img2': isSelect2 === true && registrationReducer.registration.access !== '',
       })}/>
   </div>
 
