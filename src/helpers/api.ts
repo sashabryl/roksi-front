@@ -5,8 +5,8 @@ import { UserType } from "./UserType";
 import { CartItem } from "./ChartInterface";
 import axios from "axios";
 import { BookingItem } from "./BookingInterface";
-import { useAppSelector } from "../app/hooks";
 import { store } from "../app/store";
+
 
 // export async function getCherwood(): Promise<Cherwood[]> {
 //   return wait(500)
@@ -48,9 +48,14 @@ export const LogOut = async (access) => {
       },
     });
 
+    const registrationState = store.getState().registration;
+
+    registrationState.registration.access = '';
+    registrationState.registration.refresh = '';
+
     window.location.reload();
   } catch (error) {
-    console.log(error);
+    console.log(error, 'qerg');
   } 
 };
 
@@ -85,20 +90,22 @@ export async function getUser(access: string): Promise<UserType | undefined> {
     headers: new Headers(headers),
   };
 
+  console.log('1')
+
   try {
     const response = await fetch(apiUrl, requestOptions);
     const jsonData: UserType = await response.json();
+    console.log(jsonData)
 
-    console.log(jsonData.detail )
+    if (jsonData.detail === 'Given token not valid for any token type') {
+      console.log('3')
+      const registrationState = store.getState().registration;
 
-    // if (jsonData.detail === 'Authentication credentials were not provided.') {
-    //   const registrationState = store.getState().registration;
+      registrationState.registration.access = '';
+      registrationState.registration.refresh = '';
 
-    //   registrationState.registration.access = '';
-    //   registrationState.registration.refresh = '';
-
-    //   console.log('delete');
-    // } 
+      console.log('delete')
+    } 
     return jsonData;
   } catch (error: any) {
     console.log('error')

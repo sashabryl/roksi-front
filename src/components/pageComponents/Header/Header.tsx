@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import "./Header.scss";
 import { useEffect, useState } from 'react';
-import { Filter } from '../Filter/Filter';
 import { Profile } from '../Profile/Profile';
-import { scrollToFooter } from '../../../helpers/helpers';
 import { getChart } from '../../../helpers/api';
 import { CartItem } from '../../../helpers/ChartInterface';
 import { LanguageChange } from '../LanguageChange/LanguageChange';
@@ -11,6 +9,7 @@ import { useAppSelector } from '../../../app/hooks';
 
 export const Header = () => {
   const [chart, setChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
+  const [isSelect, setIsSelect] =useState(false)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const chartReload = useAppSelector(state => state.chart);
   const registrationReducer = useAppSelector(state => state.registration);
@@ -36,6 +35,18 @@ export const Header = () => {
       console.error(error);
     });
 }, [chartReload.chart]);
+
+useEffect(() => {
+  if (registrationReducer.registration.access === '') {
+    setTimeout(() => {
+      setIsSelect(false);
+    }, 1000);
+  } else {
+    setTimeout(() => {
+      setIsSelect(true);
+    }, 1000);
+  }
+}, [registrationReducer.registration.access]);
 
     return (
     <div className="header">
@@ -67,7 +78,7 @@ export const Header = () => {
               </NavLink>
             </div>
 
-            {registrationReducer.registration.access && (
+            {isSelect === true && (
               <NavLink to="/favorites" className="header__favorites header__img" />
             )}
 

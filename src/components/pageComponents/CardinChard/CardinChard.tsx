@@ -100,24 +100,33 @@ const inChart = chart.products.find((product) => product.id === card.id);
 
         <div className="cardinChard___descr">
             <div className="modal__minicontainer2">
-              <p className="modal__type">
-              {languageReducer.language 
-                ?('Wight:')
-                :("Bara:")
-              }
-              
-              </p>
-              <p className="modal__number">{card.width}</p>
+              <div className="cardinChard__miniCont">
+              <div className="cardinChard__miniCont--2">
+                <p className="modal__type">
+                  {languageReducer.language 
+                    ?('Size')
+                    :("Розмір")
+                  }
+                </p>
+                <p className="cardinChard__heightImg" />
+              </div>
 
-              <p className="modal__slash">/</p>
-
-              <p className="modal__type">
-              {languageReducer.language 
-                ?('Height:')
-                :("Висота:")
-              }
-              </p>
               <p className="modal__number">{card.height}</p>
+              </div>
+             
+
+              <div className="cardinChard__miniCont">
+              <div className="cardinChard__miniCont--2">
+                <p className="modal__type">
+                  {languageReducer.language 
+                    ?('Size')
+                    :("Розмір")
+                  }
+                </p>
+                <p className="cardinChard__widthImg" />
+              </div>
+              <p className="modal__number">{card.width}</p>
+              </div>
             </div>
 
             <div className="modal__minicontainer2">

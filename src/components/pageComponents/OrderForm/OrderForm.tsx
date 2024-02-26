@@ -6,14 +6,12 @@ import "./OrderForm.scss";
 import { getChart, getUser } from "../../../helpers/api";
 import classNames from "classnames";
 import axios from "axios";
-import { useNavigate } from "react-router";
 import countryArr from "../../../countries (3).json";
 import { CartItem } from "../../../helpers/ChartInterface";
 
 export const OrderForm = () => {
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);
-  const navigate = useNavigate();
 
   const [user, setUser] = useState<UserType>();
   const [firstName, setFirstName] = useState<string | undefined>(user?.first_name || '');
@@ -78,13 +76,14 @@ export const OrderForm = () => {
   }, [user]);
 
   const handleConfirm = async () => {
-    if (firstName === '' 
-    ||lastName === ''
-    || userCity === ''
-    || country === ''
-    || email === ''
-    || instagram === ''
-    || telNumber === ''
+    if (
+      firstName === '' ||
+      lastName === '' ||
+      userCity === '' ||
+      country === '' ||
+      email === '' ||
+      instagram === '' ||
+      telNumber === ''
     ) {
       setErrors({
         erorr1: 'Enter a value in the field',
@@ -93,7 +92,7 @@ export const OrderForm = () => {
     } else {
       try {
         const url = 'http://127.0.0.1:8000/api/order/create/';
-    
+  
         const orderData = {
           email: email,
           first_name: firstName,
@@ -102,28 +101,19 @@ export const OrderForm = () => {
           country: country,
           city: userCity,
         };
-    
-        await axios.post(url, orderData);
   
-        if (registrationReducer.registration.access) {
-            const updatedUser = await getUser(registrationReducer.registration.access);
-            setUser(updatedUser);
-        }
+        // Відправляємо запит POST
+        const response = await axios.post(url, orderData);
   
-        try {
-          const url = 'http://127.0.0.1:8000/api/order/payments/';
-
-          await axios.get(url);
-          navigate('/success')
-        } catch (error) {
-          console.error(error);
-        }
-    } catch (error) {
-      console.error(error);
+        // Отримуємо значення поля `link` з відповіді
+        const link = response.data.link;
+        
+        window.location.href = link;
+      } catch (error) {
+        console.error(error);
+      }
     }
-  }
   };
-
   return (
     <div className="orderForm">
       <div className="orderForm__header">
