@@ -26,12 +26,12 @@ export const ProfileLogic: React.FC<Props> = ({profile}) => {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    LogOut(registrationReducer.registration.access || registrationReducer.registration.refresh);
+    navigate('/')
+    LogOut(registrationReducer.registration.access);
     dispatch(addRegistrationAction({
       access: '',
       refresh: '',
     }));
-    navigate('/')
   };
 
 

@@ -25,7 +25,7 @@ export const Profile = () => {
   };
 
   useEffect(() => {
-    if (registrationReducer.registration.access === '') {
+    if (registrationReducer.registration.access === undefined) {
       setTimeout(() => {
         setIsSelect2(false);
       }, 1000);

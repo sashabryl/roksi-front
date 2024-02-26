@@ -105,32 +105,32 @@ export async function getUser(access: string): Promise<UserType | undefined> {
         method: 'POST',
         headers: {
           ...refreshHeaders,
-          'Content-Type': 'application/json', // Set the Content-Type header to indicate JSON format
+          'Content-Type': 'application/json', 
         },
-        body: JSON.stringify({ refresh: refreshToken }), // Provide the required "refresh" field in the request body
+        body: JSON.stringify({ refresh: refreshToken }),
       };
 
       return fetch(refreshUrl, refreshRequestOptions)
         .then(response => {
           return response.json();
         })
-        .then((jsonData: UserType) => {
-
+        .then((jsonData) => {
+          console.log(jsonData)
           if (jsonData.detail === 'Token is invalid or expired') {
             const registrationState = store.getState().registration;
 
+            console.log('Token is invalid or expired')
+
             registrationState.registration.access = '';
             registrationState.registration.refresh = '';
+            throw new Error('Token is invalid or expired');
+          } else {
+            const registrationState = store.getState().registration;
+            registrationState.registration.access = jsonData.access
           }
           return Promise.resolve(jsonData);
         })
         .catch(error => {
-          if (error === 'Token is invalid or expired') {
-            const registrationState = store.getState().registration;
-
-            registrationState.registration.access = '';
-            registrationState.registration.refresh = '';
-          }
           return undefined;
         });
     } 

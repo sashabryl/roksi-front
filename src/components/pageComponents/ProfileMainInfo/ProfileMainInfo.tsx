@@ -39,7 +39,6 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
 
   const handleToggleSelect = () => setIsSelect((prev: boolean) => !prev);
 
-
   const handleCountryClick = (countr): void => {
     setSelectedCountry(countr);
     setCountry(countr);

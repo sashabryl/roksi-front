@@ -36,8 +36,9 @@ export const Header = () => {
     });
 }, [chartReload.chart]);
 
+
 useEffect(() => {
-  if (registrationReducer.registration.access === '') {
+  if (registrationReducer.registration.access === undefined) {
     setTimeout(() => {
       setIsSelect(false);
     }, 1000);
