@@ -16,7 +16,7 @@ import { store } from "../app/store";
 //     });
 // } 
 
-export async function getCherwood(): Promise<Cherwood[]> {
+export async function getCherwood(): Promise<Cherwood[] | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/products/';
 
   return fetch(apiUrl)
@@ -31,7 +31,7 @@ export async function getCherwood(): Promise<Cherwood[]> {
     })
     .catch(error => {
       console.error(error);
-      return Promise.reject(error);
+      return undefined;
     });
 }
 
@@ -55,11 +55,11 @@ export const LogOut = async (access) => {
 
     window.location.reload();
   } catch (error) {
-    console.log(error, 'qerg');
+    console.log(error);
   } 
 };
 
-export async function getChart(): Promise<CartItem> {
+export async function getChart(): Promise<CartItem | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/cart/';
 
   return fetch(apiUrl)
@@ -74,7 +74,7 @@ export async function getChart(): Promise<CartItem> {
     })
     .catch(error => {
       console.error(error);
-      return Promise.reject(error);
+      return undefined;
     });
 }
 
@@ -140,7 +140,7 @@ export async function getUser(access: string): Promise<UserType | undefined> {
   }
 }
 
-export async function getBooking(access): Promise<BookingItem[]> {
+export async function getBooking(access): Promise<BookingItem[] | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
 
   const accessToken = access;
@@ -166,12 +166,12 @@ export async function getBooking(access): Promise<BookingItem[]> {
     })
     .catch(error => {
       console.error(error);
-      return Promise.reject(error);
+      return undefined;
     });
 }
 
 
-export async function getOptions(): Promise<Option[]> {
+export async function getOptions(): Promise<Option[] | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/categories/';
 
   return fetch(apiUrl)
@@ -186,7 +186,7 @@ export async function getOptions(): Promise<Option[]> {
     })
     .catch(error => {
       console.error(error);
-      return Promise.reject(error);
+      return undefined;
     });
 }
 
