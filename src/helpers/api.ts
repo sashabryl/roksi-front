@@ -1,16 +1,12 @@
-import { Cherwood } from "./helpers/Cherwood"; 
-import cherwoodData from "../src/data (4).json";
+import { Cherwood } from "./Cherwood"; 
 
-import { Option } from "./helpers/Options";
-import options from "../src/options.json";
-import { UserType } from "./helpers/UserType";
-import { CartItem } from "./helpers/ChartInterface";
+import { Option } from "./Options";
+import { UserType } from "./UserType";
+import { CartItem } from "./ChartInterface";
 import axios from "axios";
-import { BookingItem } from "./helpers/BookingInterface";
-
-function wait(delay: number) {
-  return new Promise(resolve => setTimeout(resolve, delay));
-}
+import { BookingItem } from "./BookingInterface";
+import { useAppSelector } from "../app/hooks";
+import { store } from "../app/store";
 
 // export async function getCherwood(): Promise<Cherwood[]> {
 //   return wait(500)
@@ -51,6 +47,7 @@ export const LogOut = async (access) => {
         'Content-Type': 'application/json',
       },
     });
+
     window.location.reload();
   } catch (error) {
     console.log(error);
@@ -76,13 +73,11 @@ export async function getChart(): Promise<CartItem> {
     });
 }
 
-export async function getUser(access): Promise<UserType> {
+
+export async function getUser(access: string): Promise<UserType | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/user/me/';
-
-  const accessToken = access;
-
   const headers = {
-    Authorization: `Bearer ${accessToken}`,
+    Authorize: `Bearer ${access}`,
   };
 
   const requestOptions: RequestInit = {
@@ -90,29 +85,34 @@ export async function getUser(access): Promise<UserType> {
     headers: new Headers(headers),
   };
 
-  return fetch(apiUrl, requestOptions)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Failed to fetch data from ${apiUrl}`);
-      }
-      return response.json();
-    })
-    .then((jsonData: UserType) => {
-      return Promise.resolve(jsonData);
-    })
-    .catch(error => {
-      console.error(error);
-      return Promise.reject(error);
-    });
+  try {
+    const response = await fetch(apiUrl, requestOptions);
+    const jsonData: UserType = await response.json();
+
+    console.log(jsonData.detail )
+
+    // if (jsonData.detail === 'Authentication credentials were not provided.') {
+    //   const registrationState = store.getState().registration;
+
+    //   registrationState.registration.access = '';
+    //   registrationState.registration.refresh = '';
+
+    //   console.log('delete');
+    // } 
+    return jsonData;
+  } catch (error: any) {
+    console.log('error')
+  }
 }
 
+
 export async function getBooking(access): Promise<BookingItem[]> {
-  const apiUrl = 'http://127.0.0.1:8000/api/user/orders/';
+  const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
 
   const accessToken = access;
 
   const headers = {
-    Authorization: `Bearer ${accessToken}`,
+    Authorize: `Bearer ${accessToken}`,
   };
 
   const requestOptions: RequestInit = {
@@ -137,12 +137,22 @@ export async function getBooking(access): Promise<BookingItem[]> {
 }
 
 
-
 export async function getOptions(): Promise<Option[]> {
-  return wait(500)
-    .then(() => {
-      const jsonData2 = options as Option[];
-      return Promise.resolve(jsonData2);
+  const apiUrl = 'http://127.0.0.1:8000/api/categories/';
+
+  return fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data from ${apiUrl}`);
+      }
+      return response.json();
+    })
+    .then((jsonData: Option[]) => {
+      return Promise.resolve(jsonData);
+    })
+    .catch(error => {
+      console.error(error);
+      return Promise.reject(error);
     });
 }
 

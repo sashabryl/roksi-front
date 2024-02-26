@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useAppSelector } from "../../../app/hooks";
 import { useEffect, useState } from "react";
 import { UserType } from "../../../helpers/UserType";
-import { getUser } from "../../../api";
+import { getUser } from "../../../helpers/api";
 import axios from "axios";
 import region from "../../../oblasts.json";
 
@@ -17,12 +17,11 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
   const [user, setUser] = useState<UserType>();
   const [firstName, setFirstName] = useState<string | undefined>(user?.first_name || '');
   const [lastName, setLastName] = useState<string | undefined>(user?.last_name || '');
-  // const [country, setCountry] = useState<string | undefined>(user?.country || '');
+  const [country, setCountry] = useState<string | undefined>(user?.country || '');
   const [userCity, setCity] = useState<string | undefined>(user?.city || '');
-  const [userRregion, setRegion] = useState<string | undefined>(user?.region || '');
   const [telNumber, setTelNumber] = useState<string | undefined>(user?.tel_number || '');
-  const [selectedRegion, setSelectedRegion] = useState(
-    languageReducer.language ? 'Select region' : 'Виберіть вашу область'
+  const [selectedCountry, setSelectedCountry] = useState(
+    languageReducer.language ? 'Select country' : 'Виберіть вашу країну'
   );
   const [isSelect, setIsSelect] = useState(false);
   const [errors, setErrors] = useState({
@@ -40,15 +39,15 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
 
   const handleToggleSelect = () => setIsSelect((prev: boolean) => !prev);
 
-  const handleRegionClick = (region): void => {
-    setSelectedRegion(region);
-    setRegion(region);
-    console.log(region)
+
+  const handleCountryClick = (countr): void => {
+    setSelectedCountry(countr);
+    setCountry(countr);
     handleToggleSelect();
   };
 
   useEffect(() => {
-    if (registrationReducer.registration.access || registrationReducer.registration.refresh) {
+    if (registrationReducer.registration.access) {
       getUser(registrationReducer.registration.access)
       .then((userFromServer) => {
         setUser(userFromServer)
@@ -59,7 +58,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
   useEffect(() => {
     setFirstName(user?.first_name || '');
     setLastName(user?.last_name || '');
-    setRegion(user?.region || '');
+    setCountry(user?.country || '');
     setCity(user?.city || '');
     setTelNumber(user?.tel_number || '');
   }, [user]);
@@ -78,17 +77,15 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
         first_name: firstName,
         last_name: lastName,
         tel_number: telNumber,
-        region: userRregion,
+        country: country,
         city: userCity,
       };
   
       await axios.put(url, requestData, config);
   
-      const updatedUser = await getUser(
-        registrationReducer.registration.access ||
-        registrationReducer.registration.refresh 
-      );
+      const updatedUser = await getUser(registrationReducer.registration.access);
       setUser(updatedUser);
+
       window.location.reload();
     } catch (error) {
       setErrors({
@@ -120,7 +117,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
           </div>
 
           <div className="profileLogic__phone">
-            {`+38${telNumber}`}
+            {`${telNumber}`}
           </div>
         </div>
     </div>
@@ -176,19 +173,52 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
             />
           </label>
         </div>
-        
-        <div className="signUpLogic__miniContainer signUpLogic__miniContainer--box">
+
+        {/* <div className="signUpLogic__miniContainer signUpLogic__miniContainer--box">
             <p className="signUpLogic__text">
               {languageReducer.language
-                ? 'Your region*'
-                : 'Вашу область*'}
+                ? 'Your country*'
+                : 'Ваша країна*'}
             </p>
           
           <button
               className="signUpLogic__miniContainer signUpLogic__input signUpLogic__input--box"
+              onClick={handleToggleSelect2}
+            > 
+            {selectedCountry}
+            </button>
+
+            {isSelect2 && (
+                <ul className="orderForm__regionCont">
+                  {countryArr.map(item => (
+                    <li 
+                      key={item} 
+                      className="orderForm__region"
+                      onClick={() => handleCountryClick(item)}
+                    >
+                      {item}
+                    </li>
+                    )
+                  )}
+                </ul>
+              )}
+          </div> */}
+        
+        
+        <div className="signUpLogic__miniContainer signUpLogic__miniContainer--box">
+            <p className="signUpLogic__text">
+              {languageReducer.language
+                ? 'Your country*'
+                : 'Ваша країна*'}
+            </p>
+          
+          <button
+              className={"signUpLogic__miniContainer signUpLogic__input signUpLogic__input--box"}
               onClick={handleToggleSelect}
             > 
-            {selectedRegion}
+            {country === '' 
+            ? (languageReducer.language ? 'Select country' : 'Виберіть вашу країну')
+            : country}
             </button>
 
             {isSelect && (
@@ -197,7 +227,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
                     <li 
                       key={item} 
                       className="orderForm__region"
-                      onClick={() => handleRegionClick(item)}
+                      onClick={() => handleCountryClick(item)}
                     >
                       {item}
                     </li>
@@ -269,7 +299,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
 
         <button
           className="
-            signUpLogic__green 
+            signUpLogic__yellow 
             signUpLogic__button2
             signUpLogic__button2
           "

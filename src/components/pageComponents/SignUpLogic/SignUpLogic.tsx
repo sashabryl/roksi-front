@@ -96,7 +96,7 @@ export const SignUpLogic = () => {
           confirm_password: values.confirm_password,
         });
         
-        navigate('/');
+        navigate('/mainPage');
   
       } catch (error) {
         setErrors({

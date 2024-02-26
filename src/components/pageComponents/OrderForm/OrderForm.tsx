@@ -3,11 +3,12 @@ import { useAppSelector } from "../../../app/hooks";
 import { UserType } from "../../../helpers/UserType";
 
 import "./OrderForm.scss";
-import { getUser } from "../../../api";
+import { getChart, getUser } from "../../../helpers/api";
 import classNames from "classnames";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import region from "../../../oblasts.json";
+import countryArr from "../../../countries (3).json";
+import { CartItem } from "../../../helpers/ChartInterface";
 
 export const OrderForm = () => {
   const languageReducer = useAppSelector(state => state.language);
@@ -17,14 +18,13 @@ export const OrderForm = () => {
   const [user, setUser] = useState<UserType>();
   const [firstName, setFirstName] = useState<string | undefined>(user?.first_name || '');
   const [lastName, setLastName] = useState<string | undefined>(user?.last_name || '');
-  // const [country, setCountry] = useState<string | undefined>(user?.country || '');
   const [userCity, setCity] = useState<string | undefined>(user?.city || '');
   // const [userRregion, setUserRegion] = useState<string | undefined>(user?.region || '');
   const [email, setEmail] = useState<string | undefined>(user?.email || '');
+  const [instagram, setInstagram] = useState<string | undefined>(user?.instagram || '');
   const [telNumber, setTelNumber] = useState<string | undefined>(user?.tel_number || '');
-  const [selectedRegion, setSelectedRegion] = useState(user?.email ||
-    ''
-  );
+  const [country, setCountry] = useState<string | undefined>(user?.country || '');
+  const [chart, setChart] = useState<CartItem>()
   const [isSelect, setIsSelect] = useState(false);
   const [errors, setErrors] = useState({
     erorr1: '',
@@ -41,8 +41,8 @@ export const OrderForm = () => {
 
   const handleToggleSelect = () => setIsSelect((prev: boolean) => !prev);
 
-  const handleRegionClick = (region: string): void => {
-    setSelectedRegion(region);
+  const handleRegionClick = (country: string): void => {
+    setCountry(country);
     handleToggleSelect();
 
     setErrors({
@@ -52,28 +52,28 @@ export const OrderForm = () => {
   };
 
   useEffect(() => {
-    if (registrationReducer.registration.access 
-      || registrationReducer.registration.refresh
-      ) {
-      getUser(registrationReducer.registration.access 
-        || registrationReducer.registration.refresh
-        )
+    if (registrationReducer.registration.access) {
+      getUser(registrationReducer.registration.access)
       .then((userFromServer) => {
         setUser(userFromServer)
       })
     }
-  }, [
-    registrationReducer.registration.access,
-    registrationReducer.registration.refresh
-  ]);
+  }, [registrationReducer.registration.access]);
+
+  useEffect(() => {
+    getChart()
+    .then((userFromServer) => {
+      setChart(userFromServer)
+    })
+  }, []);
 
   useEffect(() => {
     setFirstName(user?.first_name || '');
     setLastName(user?.last_name || '');
-    // setCountry(user?.country || '');
     setCity(user?.city || '');
-    setSelectedRegion(user?.region || '');
+    setCountry(user?.country || '');
     setEmail(user?.email || '');
+    setInstagram(user?.instagram || '');
     setTelNumber(user?.tel_number || '');
   }, [user]);
 
@@ -81,8 +81,9 @@ export const OrderForm = () => {
     if (firstName === '' 
     ||lastName === ''
     || userCity === ''
-    || selectedRegion === ''
+    || country === ''
     || email === ''
+    || instagram === ''
     || telNumber === ''
     ) {
       setErrors({
@@ -98,29 +99,30 @@ export const OrderForm = () => {
           first_name: firstName,
           last_name: lastName,
           phone_number: telNumber,
-          region: selectedRegion,
+          country: country,
           city: userCity,
         };
     
         await axios.post(url, orderData);
   
-        if (registrationReducer.registration.access 
-          || registrationReducer.registration.refresh
-          )  {
-            const updatedUser = await getUser(
-              registrationReducer.registration.access ||
-              registrationReducer.registration.refresh 
-            );
+        if (registrationReducer.registration.access) {
+            const updatedUser = await getUser(registrationReducer.registration.access);
             setUser(updatedUser);
-          }
+        }
   
-        navigate('/success')
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
+        try {
+          const url = 'http://127.0.0.1:8000/api/order/payments/';
 
+          await axios.get(url);
+          navigate('/success')
+        } catch (error) {
+          console.error(error);
+        }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  };
 
   return (
     <div className="orderForm">
@@ -130,7 +132,6 @@ export const OrderForm = () => {
           :('Контакти')
         }
       </div>
-
 
       <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox">
@@ -205,49 +206,99 @@ export const OrderForm = () => {
                 )}
             </label>
           </div>
-{/*           
-          <div className="signUpLogic__miniContainer">
+          
+        <div className="signUpLogic__miniContainer">
+            <p className="signUpLogic__text">
+              {languageReducer.language
+                ? 'Email address*'
+                : 'Адреса електронної пошти*'}
+            </p>
+
+            <label
+              className="signUpLogic__miniContainer"
+              htmlFor="searchInput"
+            >
+              <input
+                type="gmail"
+                className={classNames("signUpLogic__input", {
+                  'signUpLogic__error': (email === '' && errors.erorr1 ),
+                })}
+                placeholder={
+                  languageReducer.language
+                    ? 'Enter your email address'
+                    : 'Введіть адресу вашої електронної пошти'
+                }
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            {(email === '' && errors.erorr1 ) && (
+            <div className="signUpLogic__errorText">
+                {
+                languageReducer.language 
+                ? errors.erorr1
+                : errors.erorr1_numberUkr
+              }
+            </div>
+            )}
+          </div>
+
+          
+        <div className="signUpLogic__miniContainer">
+            <p className="signUpLogic__text">
+              {languageReducer.language
+                ? 'Instagram page (for contact)*'
+                : 'Сторінка в Instagram (для зв\'язку)*'}
+            </p>
+
+            <label
+              className="signUpLogic__miniContainer"
+              htmlFor="searchInput"
+            >
+              <input
+                type="text"
+                className={classNames("signUpLogic__input", {
+                  'signUpLogic__error': (instagram === '' && errors.erorr1 ),
+                })}
+                placeholder={
+                  languageReducer.language
+                    ? 'Enter your link'
+                    : 'Введіть своє посилання'
+                }
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
+              />
+            </label>
+            {(instagram === '' && errors.erorr1 ) && (
+            <div className="signUpLogic__errorText">
+                {
+                languageReducer.language 
+                ? errors.erorr1
+                : errors.erorr1_numberUkr
+              }
+            </div>
+            )}
+          </div>
+
+          <div className="signUpLogic__miniContainer signUpLogic__miniContainer--box">
             <p className="signUpLogic__text">
               {languageReducer.language
                 ? 'Your country*'
                 : 'Ваша країна*'}
             </p>
           
-          <label
-              className="signUpLogic__miniContainer"
-              htmlFor="searchInput"
-            >
-            <input
-              type="text"
-              className="signUpLogic__input"
-              placeholder={
-                languageReducer.language
-                  ? 'Enter your country'
-                  : 'Введіть вашу країну'
-              }
-            />
-          </label>
-          </div> */}
-
-          <div className="signUpLogic__miniContainer signUpLogic__miniContainer--box">
-            <p className="signUpLogic__text">
-              {languageReducer.language
-                ? 'Your region*'
-                : 'Вашу область*'}
-            </p>
-          
           <button
               className={classNames("signUpLogic__miniContainer signUpLogic__input signUpLogic__input--box", {
-                'signUpLogic__error': (selectedRegion === '' && errors.erorr1 ),
+                'signUpLogic__error': (country === '' && errors.erorr1 ),
               })}
               onClick={handleToggleSelect}
             > 
-            {selectedRegion === '' 
-            ? (languageReducer.language ? 'Select region' : 'Виберіть вашу область')
-            : selectedRegion}
+            {country === '' 
+            ? (languageReducer.language ? 'Select country' : 'Виберіть вашу країну')
+            : country}
             </button>
 
-            {(selectedRegion === '' && errors.erorr1 )&& (
+            {(country === '' && errors.erorr1 )&& (
             <div className="signUpLogic__errorText">
                 {
                 languageReducer.language 
@@ -259,7 +310,7 @@ export const OrderForm = () => {
 
             {isSelect && (
                 <ul className="orderForm__regionCont">
-                  {region.map(item => (
+                  {countryArr.map(item => (
                     <li 
                       key={item} 
                       className="orderForm__region"
@@ -345,42 +396,6 @@ export const OrderForm = () => {
           </label>
         </div>
 
-        <div className="signUpLogic__miniContainer">
-            <p className="signUpLogic__text">
-              {languageReducer.language
-                ? 'Email address*'
-                : 'Адреса електронної пошти*'}
-            </p>
-
-            <label
-              className="signUpLogic__miniContainer"
-              htmlFor="searchInput"
-            >
-              <input
-                type="gmail"
-                className={classNames("signUpLogic__input", {
-                  'signUpLogic__error': (email === '' && errors.erorr1 ),
-                })}
-                placeholder={
-                  languageReducer.language
-                    ? 'Enter your email address'
-                    : 'Введіть адресу вашої електронної пошти'
-                }
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
-            {(email === '' && errors.erorr1 ) && (
-            <div className="signUpLogic__errorText">
-                {
-                languageReducer.language 
-                ? errors.erorr1
-                : errors.erorr1_numberUkr
-              }
-            </div>
-            )}
-          </div>
-
         <div className="profileLogic__warning" >
           {
             languageReducer.language
@@ -388,22 +403,64 @@ export const OrderForm = () => {
               : 'З нами зв\'яжуться для уточнення оплати та доставки*'
           }
         </div>
+      </div>
+      </div>
 
+      <div className="orderForm__header">
+       {languageReducer.language 
+          ?('Payment')
+          :('Платіж')
+        }
+      </div>
+      <div className="orderForm__container">
+        <div className="profileLogic__inputBox orderForm__inputBox">
+          <div className="orderForm__total--cont">
+            <div className="orderForm__total">
+              {languageReducer.language 
+                ?('Order total')
+                :('Вартість')
+              }
+            </div>
+            <div className="orderForm__total">
+              {`$${chart?.cart_total_price}`}
+            </div>
+          </div>
+
+          <div className="profileLogic__warning profileLogic__warning--right" >
+            {
+              languageReducer.language
+                ? 'The cost of delivery is paid by the customer*'
+                : 'Вартість доставки оплачує замовник*'
+            }
+        </div>
+        
+        <div className="orderForm__button--cont">
           <button
             className="
-              signUpLogic__green 
+              signUpLogic__yellow 
               signUpLogic__button2
-              signUpLogic__button2
+              orderForm__button
             "
             onClick={handleConfirm}
           >
           {
             languageReducer.language
-              ? 'Confirm'
-              : 'Продовжити'
+              ? 'Go to pay'
+              : 'Перейти, щоб заплатити'
           }
+          <p className="signUpLogic__button2--arr" />
           </button>
-      </div>
+
+          <div className="profileLogic__warning profileLogic__warning--black" >
+            {
+              languageReducer.language
+                ? 'The product will be successfully ordered only after full payment. Payment by card*'
+                : 'Товар буде успішно замовлений тільки після повної оплати. Оплата карткою*'
+            }
+        </div>
+        </div>
+        
+        </div>
       </div>
     </div>
   );

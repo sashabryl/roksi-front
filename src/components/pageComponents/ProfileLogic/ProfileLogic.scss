@@ -263,5 +263,14 @@
       font-weight: 400;
       line-height: 130%;
     }
+
+    &--right {
+      text-align: end;
+    }
+
+    &--black {
+      color: $blackColor2;
+      width: 381px;
+    }
   }
 }

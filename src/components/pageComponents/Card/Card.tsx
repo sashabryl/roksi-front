@@ -24,6 +24,7 @@ export const Card: React.FC<Props> = ({ cherwood }) => {
           <img 
             className="card__img" 
             alt="img" 
+            src={cherwood.main_image}
             onClick={hendlModal}
           />
 
@@ -38,11 +39,11 @@ export const Card: React.FC<Props> = ({ cherwood }) => {
               :('Розмір')
             }
           </h2>
-          <p className="card__size--img">
+          <div className="card__size--img">
             <p className="card__size--img--1"/>
             <p className="card__size--img--2"/>
-          </p>
-          <p className="card__size--number">{`${cherwood.price}`}</p>
+          </div>
+          <p className="card__size--number">{`${cherwood.height}/${cherwood.width}`}</p>
         </div>
 
         <div className="card__header--2">

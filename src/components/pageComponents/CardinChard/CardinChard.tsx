@@ -3,7 +3,7 @@ import { Cherwood } from "../../../helpers/Cherwood";
 import "./CardinChard.scss";
 import { Modal } from "../Modal/Modal";
 import { useEffect, useState } from "react";
-import { getChart, handleChart } from "../../../api";
+import { getChart, handleChart } from "../../../helpers/api";
 import { CartItem } from "../../../helpers/ChartInterface";
 import classNames from "classnames";
 
@@ -65,6 +65,7 @@ const inChart = chart.products.find((product) => product.id === card.id);
       <img 
         alt="cardImg" 
         className="cardinChard__img"
+        src={card.main_image}
         onClick={hendlModal}
       />
 
@@ -99,16 +100,6 @@ const inChart = chart.products.find((product) => product.id === card.id);
 
         <div className="cardinChard___descr">
             <div className="modal__minicontainer2">
-              <p className="modal__type">
-              {languageReducer.language 
-                ?('Length:')
-                :("Довжина:")
-              }
-              </p>
-              <p className="modal__number">{card.height}</p>
-
-              <p className="modal__slash">/</p>
-
               <p className="modal__type">
               {languageReducer.language 
                 ?('Wight:')

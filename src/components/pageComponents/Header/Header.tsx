@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Filter } from '../Filter/Filter';
 import { Profile } from '../Profile/Profile';
 import { scrollToFooter } from '../../../helpers/helpers';
-import { getChart } from '../../../api';
+import { getChart } from '../../../helpers/api';
 import { CartItem } from '../../../helpers/ChartInterface';
 import { LanguageChange } from '../LanguageChange/LanguageChange';
 import { useAppSelector } from '../../../app/hooks';
@@ -12,8 +12,6 @@ import { useAppSelector } from '../../../app/hooks';
 export const Header = () => {
   const [chart, setChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const languageReducer = useAppSelector(state => state.language);
   const chartReload = useAppSelector(state => state.chart);
   const registrationReducer = useAppSelector(state => state.registration);
 

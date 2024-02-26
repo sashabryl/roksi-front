@@ -1,4 +1,4 @@
-interface Subcategory {
+export interface Subcategory {
   name: string;
   name_eng: string;
 }

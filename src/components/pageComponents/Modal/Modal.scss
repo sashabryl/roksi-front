@@ -1,4 +1,5 @@
 @import "../../../helpers/variables.scss";
+@import "react-slideshow-image/dist/styles.css";
 
 .modal {
   position: fixed;
@@ -527,15 +528,5 @@
 
   @include onPhone {
     width: 100%;
-  }
-}
-
-body.modal-open {
-  overflow: hidden;
-}
-
-.cross__none {
-  @include onPhone {
-    display: none;
   }
 }

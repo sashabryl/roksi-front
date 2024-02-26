@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../app/hooks";
-import { getBooking, getCherwood} from "../../../api";
+import { getBooking, getCherwood} from "../../../helpers/api";
 import { Modal } from "../Modal/Modal";
 
 import "./HistoryLogic.scss"

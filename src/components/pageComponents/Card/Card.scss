@@ -3,15 +3,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 413px;
-  height: 540px;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
-
-  @include onPhone {
-    width: 140px;
-    height: 230px;
-  }
 
   &__top {
     width: 413px;
@@ -125,6 +118,7 @@
 
       @include onPhone {
         border-bottom: 1px solid $borderColor;
+        padding-bottom: 10px;
       }
     }
 
@@ -138,7 +132,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 21px;
+        gap: 12px;
       }
     }
   }

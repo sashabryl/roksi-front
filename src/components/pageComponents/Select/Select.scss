@@ -27,6 +27,7 @@
     font-weight: 400;
     line-height: 120%;
     color: $borderHoverColor;
+    cursor: pointer;
 
     @include onPhone {
       padding: 6px 6px;

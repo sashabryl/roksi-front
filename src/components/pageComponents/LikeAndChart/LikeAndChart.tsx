@@ -1,7 +1,7 @@
 import axios from "axios";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
-import { getChart, getUser } from "../../../api";
+import { getChart, getUser } from "../../../helpers/api";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { UserType } from "../../../helpers/UserType";
 import { CartItem } from "../../../helpers/ChartInterface";
@@ -24,9 +24,7 @@ useEffect(() => {
   if (registrationReducer.registration.access 
     || registrationReducer.registration.refresh
     ) {
-    getUser(registrationReducer.registration.access 
-      || registrationReducer.registration.refresh
-      )
+    getUser(registrationReducer.registration.access)
     .then((userFromServer) => {
       setUser(userFromServer)
     })
@@ -47,7 +45,7 @@ useEffect(() => {
     try {
       const config = {
         headers: {
-          Authorization: `Bearer ${
+          Authorize: `Bearer ${
             registrationReducer.registration.access 
             || registrationReducer.registration.refresh
           }`
@@ -92,7 +90,7 @@ if (isInChart.products.length > 0) {
     <div className="card__minicontainer">
       <button 
         className={classNames("card__notLike", {
-          'card__like': user && user.favourites.includes(id),
+          'card__like': user && user.favourites && user.favourites.includes(id),
           'card__noAbsolute' : noAbsolute,
         })} 
         onClick={handleLike}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./MainPage.scss";
 import { Cherwood } from "../../../helpers/Cherwood";
-import { getCherwood } from "../../../api";
+import { getCherwood, getOptions } from "../../../helpers/api";
 import { Card } from "../../pageComponents/Card/Card";
 import { Select } from "../../pageComponents/Select/Select";
 import { useAppSelector } from "../../../app/hooks";
@@ -14,11 +14,13 @@ import { Author } from "../../pageComponents/Author/Author";
 
 import flover from "../../../img/flover.jpg";
 import vaza from "../../../img/vaza.jpg";
+import { Option, Subcategory } from "../../../helpers/Options";
 
 const imagePerRow = 6;
 
 export const MainPage = () => {
 const [cherwood, setCherwood] = useState<Cherwood[]>([]);
+const [ophtions, setOpthions] = useState<Option[]>([]);
 const [next, setNext] = useState(imagePerRow);
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -29,6 +31,13 @@ useEffect(() => {
   getCherwood()
     .then((straviFromServer) => {
       setCherwood(straviFromServer);
+    })
+}, []);
+
+useEffect(() => {
+  getOptions()
+    .then((straviFromServer) => {
+      setOpthions(straviFromServer);
     })
 }, []);
 
@@ -44,61 +53,29 @@ useEffect(() => {
   };
 }, []);
 
-const tupe = searchQuery.get('tupe')|| '';;
-const filter = searchQuery.get('filter')|| '';
-const search = searchQuery.get('query')|| '';
+const name = searchQuery.get('name')|| '';
 
-let stateCard = useMemo(() => {
-  let newCard = cherwood;
+const names = name.split(',');
 
-  if (tupe !== '') {
-    const searchParams = new URLSearchParams(tupe);
-    const selectedOptions = Array.from(searchParams.getAll("selectedOptions"));
+let filteredCards: Cherwood[] = [];
+let subcategories: Subcategory[] = [];
 
-    const result = selectedOptions
-      .map(option => option.split('+'))
-      .flat()
-      .map(decodeURIComponent)
-      .map(term => term.toLowerCase());
+names.forEach(singleName => {
+  const category: Option | undefined = ophtions.find(category => category.name_eng === singleName.trim());
 
-    newCard = cherwood.filter((product) => {
-      const productWords = product.subcategory_name_eng.toLowerCase().split(' ');
+  if (category) {
+    const subcategoriesForCategory = category.subcategories;
+    subcategories.push(...subcategoriesForCategory);
 
-      return result.some((term) => productWords.includes(term));
+    subcategoriesForCategory.forEach(subcategory => {
+      const cardsForSubcategory = cherwood.filter(card => card.subcategory_name_eng === subcategory.name_eng);
+      filteredCards.push(...cardsForSubcategory);
     });
   }
-
-  if (filter !== '') {
-    const searchTerms = filter.toLowerCase().trim().split(' ');
-    const extractedString = searchTerms[0];
-
-    newCard = getFilteredCherwood(newCard, extractedString);
-  }
-
-  if (search !== '') {
-  const searchTerms = search.toLowerCase().trim().split(' ');
-
-  newCard = cherwood.filter((product) => {
-    let productWords: string[] = [];
-
-    if (languageReducer.language) {
-       productWords = product.name_eng.toLowerCase().split(' ');
-    } else {
-      productWords = product.name.toLowerCase().split(' ');
-    }
-    const ddd = searchTerms.every((term) => productWords
-      .some((word) => word.includes(term)));
-
-      return ddd;
-  });
-  }
-
-  return newCard;
-}, [tupe, filter, cherwood, search]);
+});
 
 const handleMoreImage = () => {
   setNext(next + imagePerRow);
-  console.log(stateCard)
 };
 
   return (
@@ -109,15 +86,6 @@ const handleMoreImage = () => {
       <div className="main__miniContainer main__miniContainer--colum">
         <div className="main__watch">
         <Select />
-          {windowWidth > 780 &&(<div 
-            className="main__defolt" 
-            onClick={() =>setNext(15)}
-          >
-            {languageReducer.language 
-              ?('View all')
-              :('Усі')
-            }
-          </div>)}
         </div>
       </div>
 
@@ -137,28 +105,35 @@ const handleMoreImage = () => {
       </div>
       </div>
 
-      {stateCard.length > 0
-      ?(<div className="main__cardContainer">
-        {stateCard.slice(0, next).map(prod => (
-          <Card cherwood={prod} key={prod.id}/>
-        ))}
-      </div>)
-      :(<NotFoundSearch />)}
-      
-     {windowWidth > 780 &&( <div className="main__buttonContainer">
-      {next < stateCard?.length && (
-        <button 
-          className="main__button" 
-          onClick={handleMoreImage}
-        >
-           {languageReducer.language 
-             ?('Show more')
-             :('Показати більше')
-           }
-         </button>
-        )}
-    
-      </div>)}
+      {filteredCards.length > 0 ? (
+        subcategories.map(subcategory => (
+          <div className="main__itemsMainCont" key={subcategory.name_eng}>
+            <div className="main__itemsMainCont--name">
+              {languageReducer.language 
+                ? subcategory.name_eng 
+                : subcategory.name
+              }
+            </div>
+            <div className="main__cardContainer">
+              {filteredCards
+                .filter(card => card.subcategory_name_eng === subcategory.name_eng)
+                .slice(0, next)
+                .map(prod => (
+                  <Card cherwood={prod} key={prod.id} />
+                ))}
+            </div>
+            {next < filteredCards.length && windowWidth > 780 && (
+              <div className="main__buttonContainer">
+              <button className="main__button" onClick={handleMoreImage}>
+                {languageReducer.language ? 'Show more' : 'Показати більше'}
+              </button>
+              </div>
+            )}
+          </div>
+        ))
+      ) : (
+        <NotFoundSearch />
+      )}
 
       <Author />
 

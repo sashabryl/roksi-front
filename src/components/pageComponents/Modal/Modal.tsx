@@ -3,13 +3,10 @@ import { Cherwood } from "../../../helpers/Cherwood";
 import "./Modal.scss";
 import { BackButton } from "../BackButton/BackButton";
 import { Slide } from "react-slideshow-image";
-
-import innn from "../../../img/8ed3e0ed53791978e13b69cfd6241d69.jpg"
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
-import { getChart, getCherwood } from "../../../api";
-import { Card } from "../Card/Card";
+import { getChart } from "../../../helpers/api";
 import { LikeAndChart } from "../LikeAndChart/LikeAndChart";
 import { CartItem } from "../../../helpers/ChartInterface";
 import axios from "axios";
@@ -47,7 +44,6 @@ const arrowButtons = {
 };
 
 export const Modal: React.FC<Props> = ({ card, hendlCloseModal }) => {
-  const [cherwood, setCherwood] = useState<Cherwood[]>([]);
   const [isInChart, setIsInChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -58,13 +54,6 @@ export const Modal: React.FC<Props> = ({ card, hendlCloseModal }) => {
   
 const shouldShow = screenWidth <= 780;
 let inChart = false;
-
-useEffect(() => {
-  getCherwood()
-  .then((straviFromServer) => {
-    setCherwood(straviFromServer);
-  })
-}, []);
 
 useEffect(() => {
   getChart()
@@ -131,7 +120,7 @@ if (isInChart.products.length > 0) {
             {card.images.map((photo, index) => (
               <div key={index} className="each-slide">
                 <img 
-                  src={innn} 
+                  src={photo.image} 
                   className={`modal__slide`} 
                 />
               </div>

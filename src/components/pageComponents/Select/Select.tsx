@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
 import "./Select.scss";
-import Checkbox from '@mui/material/Checkbox';
-import { Option } from "../../../helpers/Options";
-import { getOptions } from "../../../api";
+import { getOptions } from "../../../helpers/api";
 import { useAppSelector } from "../../../app/hooks";
 import { useSearchParams } from "react-router-dom";
-import { getSearchWith } from "../../../helpers/helpers";
 import classNames from "classnames";
 
 
 export const Select = () => {
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
-  const [option, setOption] = useState<Option[]>([]);
-  const [isSelect, setIsSelect] = useState(false);
+  const [option, setOption] = useState<any[]>([]);
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useSearchParams();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const [searchQuery, setSearchQuery] = useSearchParams();
-  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-
   const languageReducer = useAppSelector(state => state.language);
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   useEffect(() => {
     getOptions()
       .then((straviFromServer) => {
         setOption(straviFromServer);
+
+        if (straviFromServer.length > 0) {
+          setSelectedItems([straviFromServer[0]]);
+          setSearchQuery({ name: languageReducer.language ? straviFromServer[0].name_eng : straviFromServer[0].name });
+        }
       });
   }, []);
 
@@ -40,84 +38,44 @@ export const Select = () => {
     };
   }, []);
 
-  const handleCheckboxChange = (subcategoryNameEng: string) => {
-    const updatedOptions = selectedOptions.includes(subcategoryNameEng)
-      ? selectedOptions.filter((option) => option !== subcategoryNameEng)
-      : [...selectedOptions, subcategoryNameEng];
-
-    setSelectedOptions(updatedOptions);
+  const handleSelectClick = (item: any) => {
+    setSelectedItems([item]);
   };
 
-  const submitForm = () => {
-    const searchParams = new URLSearchParams();
-    selectedOptions.forEach((option) => {
-      searchParams.append('selectedOptions', option);
-    });
-  
-    const queryString = searchParams.toString();
-  
-    setSearchQuery(getSearchWith(searchQuery, { tupe: queryString || null }));
-    setIsSelect(!isSelect);
-    setSelectedOption(null);
+  const handleViewAllClick = () => {
+    setSelectedItems([...option]);
   };
 
-  const isClearSearch = () => {
-    setIsSelect(!isSelect);
-    setSearchQuery(getSearchWith(searchQuery, { tupe: null }));
-    setSelectedOptions([]);
-    setSelectedOption(null);
-  }
-
-  const [openSubcategories, setOpenSubcategories] = useState<number[]>([]);
-
-  const handleSelectClick = (selected: Option) => {
-    setSelectedOption(selected);
-
-    const isOpen = openSubcategories.includes(selected.id);
-
-    setOpenSubcategories((prev) =>
-      isOpen ? prev.filter((id) => id !== selected.id) : [...prev, selected.id]
-    );
-
-    if (selected === selectedOption && isOpen) {
-      setSelectedOption(null);
-    }
-  };
+  useEffect(() => {
+    setSearchQuery({
+       name: selectedItems.map(item => item.name_eng).join(', ')});
+  }, [selectedItems]);
 
   return (
-    <div className="select">
-        <button 
-          className={classNames("select__container", 
-          isSelect && 'select__container--selected')}
-          onClick={() => handleSelectClick}
-        >
-          {languageReducer.language 
-             ?('Glasses')
-             :('Скляні вироби')
-           }
-        </button>
+    <>
+      <div className="select">
+        {option.map((item) => (
+          <button 
+            key={item.id}
+            className={selectedItems.some(selectedItem => selectedItem.id === item.id) ? "select__container select__container--selected" : "select__container"}
+            onClick={() => handleSelectClick(item)}
+          >
+            {languageReducer.language ? item.name_eng : item.name}
+          </button>
+        ))}
+      </div>
 
-        <button 
-          className={classNames("select__container", 
-          isSelect && 'select__container--selected')}
-          onClick={() => handleSelectClick}
+      {windowWidth > 780 && (
+        <div 
+          className="main__defolt" 
+          onClick={handleViewAllClick}
         >
           {languageReducer.language 
-             ?('Pictures')
-             :('Картини')
-           }
-        </button>
-
-        <button 
-          className={classNames("select__container", 
-          isSelect && 'select__container--selected')}
-          onClick={() => handleSelectClick}
-        >
-          {languageReducer.language 
-             ?('Christmas bubbles')
-             :('Різдвяні кульки')
-           }
-        </button>
-    </div>
+            ? ('View all')
+            : ('Усі')
+          }
+        </div>
+      )}
+    </>
   );
 };

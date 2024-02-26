@@ -7,7 +7,7 @@ import { ProfileMainInfo } from "../ProfileMainInfo/ProfileMainInfo";
 import { useEffect, useState } from "react";
 import { Footer } from "../Footer/Footer";
 import { HistoryLogic } from "../HistoryLogic/HistoryLogic";
-import { LogOut, getChart } from "../../../api";
+import { LogOut, getChart } from "../../../helpers/api";
 import { CartItem } from "../../../helpers/ChartInterface";
 import { addRegistrationAction } from "../../../app/slice/RegistrSlice";
 

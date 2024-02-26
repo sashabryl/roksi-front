@@ -160,6 +160,16 @@
   @include onPhone {
     padding: 11px;
   }
+  
+  &--arr {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("../../../img/RightArrBlack.svg");
+    width: 8px;
+    height: 14px;
+    margin: 0 0 0 10px;
+  }
   }
 
   &__img {
@@ -229,10 +239,6 @@
     flex-direction: column;
     max-width: 438px;
     width: 100%;
-
-    @include onPhone {
-      margin-top: 40px;
-   }
   }
 
   &__logIn {

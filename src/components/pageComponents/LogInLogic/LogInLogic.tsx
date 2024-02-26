@@ -74,8 +74,7 @@ export const LogInLogic = () => {
         }))
       })
    
-      navigate('/');
-
+      navigate('/mainPage');
     } catch (error) {
       setErrors({
         email: 'An error occurred during login.',

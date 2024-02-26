@@ -3,10 +3,10 @@ import { Cherwood } from "../../../helpers/Cherwood";
 import { BackButton } from "../../pageComponents/BackButton/BackButton"; 
 import { Header } from "../../pageComponents/Header/Header"; 
 import { Footer } from "../../pageComponents/Footer/Footer"; 
-import { getCherwood, getUser } from "../../../api";
+import { getCherwood, getUser } from "../../../helpers/api";
 import { Card } from "../../pageComponents/Card/Card";
 import { useAppSelector } from "../../../app/hooks";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserType } from "../../../helpers/UserType";
 import { Author } from "../../pageComponents/Author/Author";
 
@@ -19,15 +19,14 @@ export const Like = () => {
   const registrationReducer = useAppSelector(state => state.registration);
 
   const favoriteCherwood = cherwood.filter(item => user?.favourites.includes(item.id));
+  const navigate = useNavigate();
 
 useEffect(() => {
-  getUser(registrationReducer.registration.access 
-    || registrationReducer.registration.refresh
-    )
+  getUser(registrationReducer.registration.access)
   .then((userFromServer) => {
     setUser(userFromServer)
   })
-}, [user?.favourites]);
+}, []);
 
 useEffect(() => {
   getCherwood()
@@ -47,7 +46,11 @@ useEffect(() => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [])
+  }, []);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const shouldShow = screenWidth <= 780;
 
@@ -56,25 +59,10 @@ useEffect(() => {
       <div className="modal__background">
         {shouldShow && <Header />}
         <div className="modal__top">
-        <NavLink
-          className="backButton"
-          to="/"
-          aria-hidden
-          data-cy="backButton"
-        >
-        <div className="backButton__icon" />
-
-        <span className="backButton__text">
-          {
-            languageReducer.language 
-              ?('back')
-              :('назад')
-          }
-        </span>
-      </NavLink>
-        <NavLink 
+        <BackButton />
+        <p 
           className="filter__cross cross__none"
-          to="/"
+          onClick={handleGoBack}
         />
         </div>
 

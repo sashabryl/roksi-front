@@ -95,7 +95,7 @@
       background-color: $darkWhiteColor;
       border: 1px solid $darkWhiteColor;
       border-radius: 10px;
-      background-image: url("../../../img/Favorite.svg");
+      background-image: url("../../../img/FavouriteBlack.svg");
       margin-left: 50px;
 
       @include onPhone {
@@ -104,6 +104,7 @@
         height: 25px;
       }
     }
+
 
     &__languageContainer {
       display: flex;

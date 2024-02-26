@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getChart, getCherwood } from "../../../api";
+import { getChart, getCherwood } from "../../../helpers/api";
 import { useAppSelector } from "../../../app/hooks";
 import { Cherwood } from "../../../helpers/Cherwood";
 import { CartItem } from "../../../helpers/ChartInterface";
@@ -104,8 +104,6 @@ const inChart = cherwood.filter((product) => chart.products.some((productId) => 
       :(
         <OrderChartLogic inChart={inChart} handleRemove={handleRemove}/>
       )}
-     
-      {windowWidth && <Author />}
       {windowWidth < 780 &&( <Footer />)}
     </div>
   );

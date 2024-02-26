@@ -49,7 +49,7 @@
     margin-top: 85px;
 
     @include onPhone {
-      margin: 40px 16px;
+      margin: 40px 16px 0 16px;
     }
   }
 
@@ -145,7 +145,7 @@
     margin: 88px 0px 72px 0px;
 
     @include onPhone {
-      margin: 32px 0px 40px 0px;
+      margin: 32px 0px 0px 0px;
     }
   }
 }
