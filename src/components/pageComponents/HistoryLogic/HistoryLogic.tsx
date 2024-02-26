@@ -18,15 +18,19 @@ export const HistoryLogic = () => {
   const hendlModal = () => {
     setIsSelect(!isSelect);
   } 
- 
+
   useEffect(() => {
-    getBooking( 
-       registrationReducer.registration.access 
-      || registrationReducer.registration.refresh
-      )
-      .then((straviFromServer) => {
-        setCherwood(straviFromServer);
-      })
+    const fetchData = async () => {
+      try {
+        const straviFromServer = await getBooking(registrationReducer.registration.access);
+        if (straviFromServer) {
+          setCherwood(straviFromServer);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -37,14 +41,8 @@ export const HistoryLogic = () => {
   }, []);
 
   const filteredCherwood = allcherwood.filter(item => {
-    console.log(item,'item')
-    cherwood.some(cherwoodItem => console.log(cherwoodItem.order_items, 'er'));
-    return cherwood.some(cherwoodItem => cherwoodItem.order_items.includes(item.id));
-  });
-
-  console.log(filteredCherwood,'awfv')
-  
-  console.log(allcherwood,'123')
+    return cherwood.some(cherwoodItem => cherwoodItem.order_items && cherwoodItem.order_items.includes(item.id));
+});
 
   return (
     <div className="historyLogic">

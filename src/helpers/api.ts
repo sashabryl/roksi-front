@@ -16,7 +16,7 @@ import { store } from "../app/store";
 //     });
 // } 
 
-export async function getCherwood(): Promise<Cherwood[] | undefined> {
+export async function getCherwood(): Promise<Cherwood[]> {
   const apiUrl = 'http://127.0.0.1:8000/api/products/';
 
   return fetch(apiUrl)
@@ -31,7 +31,7 @@ export async function getCherwood(): Promise<Cherwood[] | undefined> {
     })
     .catch(error => {
       console.error(error);
-      return undefined;
+      return Promise.reject(error);
     });
 }
 
@@ -55,11 +55,11 @@ export const LogOut = async (access) => {
 
     window.location.reload();
   } catch (error) {
-    console.log(error);
+    console.log(error, 'qerg');
   } 
 };
 
-export async function getChart(): Promise<CartItem | undefined> {
+export async function getChart(): Promise<CartItem> {
   const apiUrl = 'http://127.0.0.1:8000/api/cart/';
 
   return fetch(apiUrl)
@@ -74,7 +74,7 @@ export async function getChart(): Promise<CartItem | undefined> {
     })
     .catch(error => {
       console.error(error);
-      return undefined;
+      return Promise.reject(error);
     });
 }
 
@@ -139,7 +139,6 @@ export async function getUser(access: string): Promise<UserType | undefined> {
     return undefined;
   }
 }
-
 export async function getBooking(access): Promise<BookingItem[] | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
 
@@ -162,16 +161,15 @@ export async function getBooking(access): Promise<BookingItem[] | undefined> {
       return response.json();
     })
     .then((jsonData: BookingItem[]) => {
-      return Promise.resolve(jsonData);
+      return jsonData; // Повернення значення даних
     })
     .catch(error => {
       console.error(error);
-      return undefined;
+      return undefined; // Повернення undefined у випадку помилки
     });
 }
 
-
-export async function getOptions(): Promise<Option[] | undefined> {
+export async function getOptions(): Promise<Option[]> {
   const apiUrl = 'http://127.0.0.1:8000/api/categories/';
 
   return fetch(apiUrl)
@@ -186,7 +184,7 @@ export async function getOptions(): Promise<Option[] | undefined> {
     })
     .catch(error => {
       console.error(error);
-      return undefined;
+      return Promise.reject(error);
     });
 }
 
