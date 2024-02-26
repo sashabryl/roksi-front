@@ -78,7 +78,6 @@ export async function getChart(): Promise<CartItem> {
     });
 }
 
-
 export async function getUser(access: string): Promise<UserType | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/user/me/';
   const headers = {
@@ -89,29 +88,57 @@ export async function getUser(access: string): Promise<UserType | undefined> {
     method: 'GET',
     headers: new Headers(headers),
   };
-
-  console.log('1')
-
   try {
     const response = await fetch(apiUrl, requestOptions);
     const jsonData: UserType = await response.json();
-    console.log(jsonData)
 
     if (jsonData.detail === 'Given token not valid for any token type') {
-      console.log('3')
-      const registrationState = store.getState().registration;
+      const refreshToken = store.getState().registration.registration.refresh;
 
-      registrationState.registration.access = '';
-      registrationState.registration.refresh = '';
+      const refreshUrl = 'http://127.0.0.1:8000/api/user/token-refresh/';
 
-      console.log('delete')
+      const refreshHeaders = {
+        Authorization: `Bearer ${refreshToken}`,
+      };
+
+      const refreshRequestOptions: RequestInit = {
+        method: 'POST',
+        headers: {
+          ...refreshHeaders,
+          'Content-Type': 'application/json', // Set the Content-Type header to indicate JSON format
+        },
+        body: JSON.stringify({ refresh: refreshToken }), // Provide the required "refresh" field in the request body
+      };
+
+      return fetch(refreshUrl, refreshRequestOptions)
+        .then(response => {
+          return response.json();
+        })
+        .then((jsonData: UserType) => {
+
+          if (jsonData.detail === 'Token is invalid or expired') {
+            const registrationState = store.getState().registration;
+
+            registrationState.registration.access = '';
+            registrationState.registration.refresh = '';
+          }
+          return Promise.resolve(jsonData);
+        })
+        .catch(error => {
+          if (error === 'Token is invalid or expired') {
+            const registrationState = store.getState().registration;
+
+            registrationState.registration.access = '';
+            registrationState.registration.refresh = '';
+          }
+          return undefined;
+        });
     } 
     return jsonData;
   } catch (error: any) {
-    console.log('error')
+    return undefined;
   }
 }
-
 
 export async function getBooking(access): Promise<BookingItem[]> {
   const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
