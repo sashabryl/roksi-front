@@ -24,7 +24,7 @@ useEffect(() => {
   if (registrationReducer.registration.access 
     || registrationReducer.registration.refresh
     ) {
-    getUser(registrationReducer.registration.access)
+    getUser(registrationReducer.registration.access, dispatch)
     .then((userFromServer) => {
       setUser(userFromServer)
     })

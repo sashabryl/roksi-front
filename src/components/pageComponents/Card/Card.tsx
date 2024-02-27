@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Cherwood } from "../../../helpers/Cherwood.js";
+import { ApiInterface } from "../../../helpers/ApiInterface.js";
 import "./Card.scss";
 import { Modal } from "../Modal/Modal";
 import { useAppSelector } from "../../../app/hooks";
 import { LikeAndChart } from "../LikeAndChart/LikeAndChart";
 
 type Props = {
-  cherwood: Cherwood,
+  api: ApiInterface,
 }
 
-export const Card: React.FC<Props> = ({ cherwood }) => {
+export const Card: React.FC<Props> = ({ api }) => {
   const [isSelect, setIsSelect] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
 
@@ -24,11 +24,11 @@ export const Card: React.FC<Props> = ({ cherwood }) => {
           <img 
             className="card__img" 
             alt="img" 
-            src={cherwood.main_image}
+            src={api.main_image}
             onClick={hendlModal}
           />
 
-          <LikeAndChart id={cherwood.id}/>
+          <LikeAndChart id={api.id}/>
         </div>
 
       <div className="card__header" onClick={hendlModal}>
@@ -43,22 +43,22 @@ export const Card: React.FC<Props> = ({ cherwood }) => {
             <p className="card__size--img--1"/>
             <p className="card__size--img--2"/>
           </div>
-          <p className="card__size--number">{`${cherwood.height}/${cherwood.width}`}</p>
+          <p className="card__size--number">{`${api.height}/${api.width}`}</p>
         </div>
 
         <div className="card__header--2">
           <h1 className="card__name">
             {languageReducer.language 
-              ?cherwood.name_eng
-              :cherwood.name
+              ?api.name_eng
+              :api.name
             }
           </h1>
-          <p className="card__price">{`$ ${cherwood.price}`}</p>
+          <p className="card__price">{`$ ${api.price}`}</p>
         </div>
       </div>
     </div>
 
-    {isSelect &&(<Modal card={cherwood} hendlCloseModal={hendlModal}/>)}
+    {isSelect &&(<Modal card={api} hendlCloseModal={hendlModal}/>)}
   </>
   );
 }

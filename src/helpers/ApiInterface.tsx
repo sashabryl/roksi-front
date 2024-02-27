@@ -1,4 +1,4 @@
-export interface Cherwood {
+export interface ApiInterface {
   id: number;
   name: string;
   name_eng: string;

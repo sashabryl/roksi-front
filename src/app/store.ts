@@ -15,7 +15,7 @@ import RegistrationSlice from './slice/RegistrSlice';
 import ChartSlice from './slice/ChartSlice';
 
 const persistConfig = {
-  key: 'cherwood',
+  key: 'roksi',
   storage,
   whitelist: ['language', 'registration', 'chart',],
 };

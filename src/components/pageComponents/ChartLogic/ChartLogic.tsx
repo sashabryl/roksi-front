@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getChart, getCherwood } from "../../../helpers/api";
+import { getChart, getApi } from "../../../helpers/api";
 import { useAppSelector } from "../../../app/hooks";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 import { CartItem } from "../../../helpers/ChartInterface";
 import { NavLink } from "react-router-dom";
 import { Profile } from "../Profile/Profile";
@@ -9,7 +9,6 @@ import { BackButton } from "../BackButton/BackButton";
 import { OrderForm } from "../OrderForm/OrderForm";
 import { Footer } from "../Footer/Footer";
 import { OrderChartLogic } from "../OrderChartLogic/OrderChartLogic";
-import { Author } from "../Author/Author";
 
 type Props = {
   isOrder: boolean,
@@ -18,7 +17,7 @@ type Props = {
 export const ChartLogic: React.FC<Props> = ({isOrder}) => {
   const [chart, setChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [cherwood, setCherwood] = useState<Cherwood[]>([]);
+  const [api, setApi] = useState<ApiInterface[]>([]);
   const [prev, setsetPrev] = useState(1);
   const [change, setChange] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
@@ -36,9 +35,9 @@ useEffect(() => {
 }, [change]);
 
 useEffect(() => {
-  getCherwood()
+  getApi()
   .then((userFromServer) => {
-    setCherwood(userFromServer)
+    setApi(userFromServer)
   })
 }, []);
 
@@ -54,7 +53,7 @@ useEffect(() => {
   };
 }, []);
 
-const inChart = cherwood.filter((product) => chart.products.some((productId) => productId.id === product.id));
+const inChart = api.filter((product) => chart.products.some((productId) => productId.id === product.id));
 
   return (
     <div className="chart">

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 import { BackButton } from "../../pageComponents/BackButton/BackButton"; 
 import { Header } from "../../pageComponents/Header/Header"; 
 import { Footer } from "../../pageComponents/Footer/Footer"; 
-import { getCherwood, getUser } from "../../../helpers/api";
+import { getApi, getUser } from "../../../helpers/api";
 import { Card } from "../../pageComponents/Card/Card";
-import { useAppSelector } from "../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserType } from "../../../helpers/UserType";
 import { Author } from "../../pageComponents/Author/Author";
@@ -13,25 +13,26 @@ import { Author } from "../../pageComponents/Author/Author";
 
 export const Like = () => {
   const [user, setUser] = useState<UserType>();
-  const [cherwood, setCherwood] = useState<Cherwood[]>([]);
+  const [appint, setAppInt] = useState<ApiInterface[]>([]);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);
 
-  const favoriteCherwood = cherwood.filter(item => user?.favourites.includes(item.id));
+  const favoriteCherwood = appint.filter(item => user?.favourites.includes(item.id));
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
 useEffect(() => {
-  getUser(registrationReducer.registration.access)
+  getUser(registrationReducer.registration.access, dispatch)
   .then((userFromServer) => {
     setUser(userFromServer)
   })
 }, []);
 
 useEffect(() => {
-  getCherwood()
+  getApi()
   .then((cherwoodFromServer) => {
-    setCherwood(cherwoodFromServer)
+    setAppInt(cherwoodFromServer)
   })
 }, []);
 
@@ -70,7 +71,7 @@ useEffect(() => {
         ?(
           <div className="modal__items">
             {favoriteCherwood.map((item)=> (
-              <Card cherwood={item} key={item.id}/>
+              <Card api={item} key={item.id}/>
             ))}
           </div>
           )

@@ -1,10 +1,10 @@
-import { Cherwood } from "./Cherwood";
+import { ApiInterface } from "./ApiInterface";
 
 export const getFilteredCherwood = (
-  products: Cherwood[],
+  products: ApiInterface[],
   filterBy: string,
 ) => {
-  let newArr: Cherwood[] = [];
+  let newArr: ApiInterface[] = [];
 
   switch (filterBy) {
     case 'expensive':

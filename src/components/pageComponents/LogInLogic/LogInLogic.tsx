@@ -9,7 +9,6 @@ import { addRegistrationAction } from "../../../app/slice/RegistrSlice";
 
 export const LogInLogic = () => {
   const languageReducer = useAppSelector((state) => state.language);
-  const registration = useAppSelector((state) => state.registration);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -69,8 +68,7 @@ export const LogInLogic = () => {
         password: values.password,
       });
       
-      registration.registration.access = response.data.access;
-      registration.registration.refresh = response.data.refresh;
+      dispatch( addRegistrationAction({ access: response.data.access, refresh: response.data.refresh }));
      
       navigate('/mainPage');
     } catch (error) {

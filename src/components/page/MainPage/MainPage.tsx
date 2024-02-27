@@ -1,7 +1,7 @@
 import { useEffect,  useState } from "react";
 import "./MainPage.scss";
-import { Cherwood } from "../../../helpers/Cherwood";
-import { getCherwood, getOptions } from "../../../helpers/api";
+import { ApiInterface } from "../../../helpers/ApiInterface";
+import { getApi, getOptions } from "../../../helpers/api";
 import { Card } from "../../pageComponents/Card/Card";
 import { Select } from "../../pageComponents/Select/Select";
 import { useAppSelector } from "../../../app/hooks";
@@ -16,7 +16,7 @@ import vaza from "../../../img/vaza.jpg";
 import { Option, Subcategory } from "../../../helpers/Options";
 
 export const MainPage = () => {
-const [cherwood, setCherwood] = useState<Cherwood[]>([]);
+const [api, setApi] = useState<ApiInterface[]>([]);
 const [ophtions, setOpthions] = useState<Option[]>([]);
 const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -24,9 +24,9 @@ const [searchQuery] = useSearchParams();
 const languageReducer = useAppSelector(state => state.language);
 
 useEffect(() => {
-  getCherwood()
+  getApi()
     .then((straviFromServer) => {
-      setCherwood(straviFromServer);
+      setApi(straviFromServer);
     })
 }, []);
 
@@ -53,7 +53,7 @@ const name = searchQuery.get('name')|| '';
 
 const names = name.split(',');
 
-let filteredCards: Cherwood[] = [];
+let filteredCards: ApiInterface[] = [];
 let subcategories: Subcategory[] = [];
 
 names.forEach(singleName => {
@@ -64,7 +64,7 @@ names.forEach(singleName => {
     subcategories.push(...subcategoriesForCategory);
 
     subcategoriesForCategory.forEach(subcategory => {
-      const cardsForSubcategory = cherwood.filter(card => card.subcategory_name_eng === subcategory.name_eng);
+      const cardsForSubcategory = api.filter(card => card.subcategory_name_eng === subcategory.name_eng);
       filteredCards.push(...cardsForSubcategory);
     });
   }
@@ -110,7 +110,7 @@ names.forEach(singleName => {
               {filteredCards
                 .filter(card => card.subcategory_name_eng === subcategory.name_eng)
                 .map(prod => (
-                  <Card cherwood={prod} key={prod.id} />
+                  <Card api={prod} key={prod.id} />
                 ))}
             </div>
           </div>

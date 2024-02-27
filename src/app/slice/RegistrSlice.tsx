@@ -3,10 +3,11 @@ import { initialState } from "../initialState";
 
 const registrationSlice = createSlice({
   name: 'registration',
-  initialState: initialState,
+  initialState,
   reducers: {
-    addRegistrationAction: (state, { payload }) => {
-      state.registration = payload;
+    addRegistrationAction: (state, action) => {
+      state.registration.access = action.payload.access;
+      state.registration.refresh = action.payload.refresh;
     },
   },
 });

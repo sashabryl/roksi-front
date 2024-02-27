@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useAppSelector } from "../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { useEffect, useState } from "react";
 import { UserType } from "../../../helpers/UserType";
 import { getUser } from "../../../helpers/api";
@@ -13,6 +13,7 @@ type Props = {
 export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
   const registrationReducer = useAppSelector(state => state.registration);
   const languageReducer = useAppSelector(state => state.language);
+  const dispatch = useAppDispatch();
 
   const [user, setUser] = useState<UserType>();
   const [firstName, setFirstName] = useState<string | undefined>(user?.first_name || '');
@@ -39,7 +40,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
 
   useEffect(() => {
     if (registrationReducer.registration.access) {
-      getUser(registrationReducer.registration.access)
+      getUser(registrationReducer.registration.access, dispatch)
       .then((userFromServer) => {
         setUser(userFromServer)
       })
@@ -74,7 +75,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
   
       await axios.put(url, requestData, config);
   
-      const updatedUser = await getUser(registrationReducer.registration.access);
+      const updatedUser = await getUser(registrationReducer.registration.access, dispatch);
       setUser(updatedUser);
 
       window.location.reload();

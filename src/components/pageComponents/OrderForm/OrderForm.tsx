@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { UserType } from "../../../helpers/UserType";
 
 import "./OrderForm.scss";
@@ -12,6 +12,7 @@ import { CartItem } from "../../../helpers/ChartInterface";
 export const OrderForm = () => {
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);
+  const dispatch = useAppDispatch();
 
   const [user, setUser] = useState<UserType>();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -52,7 +53,7 @@ export const OrderForm = () => {
 
   useEffect(() => {
     if (registrationReducer.registration.access) {
-      getUser(registrationReducer.registration.access)
+      getUser(registrationReducer.registration.access, dispatch)
       .then((userFromServer) => {
         setUser(userFromServer)
       })

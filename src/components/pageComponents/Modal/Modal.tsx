@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 import "./Modal.scss";
 import { BackButton } from "../BackButton/BackButton";
 import { Slide } from "react-slideshow-image";
@@ -15,7 +15,7 @@ import { useNavigate } from "react-router";
 import { Author } from "../Author/Author";
 
 type Props = {
-  card: Cherwood,
+  card: ApiInterface,
   hendlCloseModal: () => void; 
 };
 

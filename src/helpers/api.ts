@@ -1,4 +1,4 @@
-import { Cherwood } from "./Cherwood"; 
+import { ApiInterface } from "./ApiInterface"; 
 
 import { Option } from "./Options";
 import { UserType } from "./UserType";
@@ -6,17 +6,9 @@ import { CartItem } from "./ChartInterface";
 import axios from "axios";
 import { BookingItem } from "./BookingInterface";
 import { store } from "../app/store";
+import { addRegistrationAction } from "../app/slice/RegistrSlice";
 
-
-// export async function getCherwood(): Promise<Cherwood[]> {
-//   return wait(500)
-//     .then(() => {
-//       const jsonData = cherwoodData as Cherwood[];
-//       return Promise.resolve(jsonData);
-//     });
-// } 
-
-export async function getCherwood(): Promise<Cherwood[]> {
+export async function getApi(): Promise<ApiInterface[]> {
   const apiUrl = 'http://127.0.0.1:8000/api/products/';
 
   return fetch(apiUrl)
@@ -26,7 +18,7 @@ export async function getCherwood(): Promise<Cherwood[]> {
       }
       return response.json();
     })
-    .then((jsonData: Cherwood[]) => {
+    .then((jsonData: ApiInterface[]) => {
       return Promise.resolve(jsonData);
     })
     .catch(error => {
@@ -48,14 +40,9 @@ export const LogOut = async (access) => {
       },
     });
 
-    const registrationState = store.getState().registration;
-
-    registrationState.registration.access = '';
-    registrationState.registration.refresh = '';
-
     window.location.reload();
   } catch (error) {
-    console.log(error, 'qerg');
+    console.log(error);
   } 
 };
 
@@ -79,7 +66,7 @@ export async function getChart(): Promise<CartItem> {
 }
 
 
-export async function getUser(access: string): Promise<UserType | undefined> {
+export async function getUser(access: string, dispatch): Promise<UserType | undefined> {
   const apiUrl = 'http://127.0.0.1:8000/api/user/me/';
   const headers = {
     Authorize: `Bearer ${access}`,
@@ -118,17 +105,9 @@ export async function getUser(access: string): Promise<UserType | undefined> {
         .then((jsonData) => {
           console.log(jsonData)
           if (jsonData.detail === 'Token is invalid or expired') {
-            const registrationState = store.getState().registration;
-
-            console.log('Token is invalid or expired')
-
-            registrationState.registration.access = '';
-            registrationState.registration.refresh = '';
-            
-            throw new Error('Token is invalid or expired');
+            dispatch( addRegistrationAction({ access: '', refresh: '' }));
           } else {
-            const registrationState = store.getState().registration;
-            registrationState.registration.access = jsonData.access
+            dispatch( addRegistrationAction({ access: jsonData.access}));
           }
           return Promise.resolve(jsonData);
         })
@@ -137,6 +116,7 @@ export async function getUser(access: string): Promise<UserType | undefined> {
         });
     } 
     return jsonData;
+    
   } catch (error: any) {
     return undefined;
   }

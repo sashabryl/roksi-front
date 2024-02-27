@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useAppSelector } from "../../../app/hooks";
 import { CardinChard } from "../CardinChard/CardinChard";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 
 type Props = {
-  inChart: Cherwood [];
+  inChart: ApiInterface[];
   handleRemove: () => void,
 }
 

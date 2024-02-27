@@ -1,14 +1,13 @@
 import { useAppSelector } from "../../../app/hooks";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 import "./CardinChard.scss";
 import { Modal } from "../Modal/Modal";
 import { useEffect, useState } from "react";
 import { getChart, handleChart } from "../../../helpers/api";
 import { CartItem } from "../../../helpers/ChartInterface";
-import classNames from "classnames";
 
 type Props = {
-  card: Cherwood;
+  card: ApiInterface;
   handleRemove: () => void,
 }
 

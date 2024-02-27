@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../app/hooks";
-import { getBooking, getCherwood} from "../../../helpers/api";
+import { getBooking, getApi} from "../../../helpers/api";
 import { Modal } from "../Modal/Modal";
 
 import "./HistoryLogic.scss"
 import { NavLink } from "react-router-dom";
 import { BookingItem } from "../../../helpers/BookingInterface";
-import { Cherwood } from "../../../helpers/Cherwood";
+import { ApiInterface } from "../../../helpers/ApiInterface";
 
 export const HistoryLogic = () => {
   const [cherwood, setCherwood] = useState<BookingItem[]>([{ id: 0, total: '', created_at: '', order_items: [] }]);
-  const [allcherwood, setAllCherwood] = useState<Cherwood[]>([]);
+  const [api, setApi] = useState<ApiInterface[]>([]);
   const [isSelect, setIsSelect] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);
@@ -34,13 +34,13 @@ export const HistoryLogic = () => {
   }, []);
 
   useEffect(() => {
-    getCherwood()
+    getApi()
       .then((straviFromServer) => {
-        setAllCherwood(straviFromServer);
+        setApi(straviFromServer);
       })
   }, []);
 
-  const filteredCherwood = allcherwood.filter(item => {
+  const filteredCherwood = api.filter(item => {
     return cherwood.some(cherwoodItem => cherwoodItem.order_items && cherwoodItem.order_items.includes(item.id));
 });
 
