@@ -15,6 +15,7 @@ export interface ApiInterface {
   subcategory_name_eng: string;
   main_image: string;
   images: Image[];
+  get_date?: string;
 }
 
 interface Image {

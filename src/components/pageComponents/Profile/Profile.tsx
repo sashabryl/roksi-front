@@ -104,17 +104,6 @@ export const Profile = () => {
             </div>
           </NavLink>
           </li>
-          {/* <li className="profile__select">
-            <NavLink to="/payment" className="profile__option">
-              <p className="profile__img profile__pay"/>
-              <div className="profile__text">
-                {languageReducer.language 
-                  ?('Payment')
-                  :('Платіж')
-                }
-              </div>
-            </NavLink>
-          </li> */}
 
           <li className="profile__select">
             <NavLink to="/history" className="profile__option">

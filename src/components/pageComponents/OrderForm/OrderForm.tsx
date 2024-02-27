@@ -96,7 +96,6 @@ export const OrderForm = () => {
       userCity === '' ||
       country === '' ||
       email === '' ||
-      instagram === '' ||
       telNumber === ''
     ) {
       setErrors({

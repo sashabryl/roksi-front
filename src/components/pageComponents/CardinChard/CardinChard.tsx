@@ -3,20 +3,26 @@ import { ApiInterface } from "../../../helpers/ApiInterface";
 import "./CardinChard.scss";
 import { Modal } from "../Modal/Modal";
 import { useEffect, useState } from "react";
-import { getChart, handleChart } from "../../../helpers/api";
-import { CartItem } from "../../../helpers/ChartInterface";
+import { handleChart } from "../../../helpers/api";
+import { useLocation } from "react-router";
 
 type Props = {
   card: ApiInterface;
+  wasOrdered?: string,
   handleRemove: () => void,
 }
 
-export const CardinChard: React.FC<Props> = ({card, handleRemove}) => {
-  const [chart, setChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
+export const CardinChard: React.FC<Props> = ({card, wasOrdered, handleRemove}) => {
   const [isSelect, setIsSelect] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [change, setChange] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
+
+  const location = useLocation();
+  
+  const shouldRenderButton = location.pathname !== '/history';
+
+  console.log(wasOrdered ,'wasOrdered')
 
   const hendlModal = () => {
     setIsSelect(!isSelect);
@@ -39,24 +45,6 @@ export const CardinChard: React.FC<Props> = ({card, handleRemove}) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 100));
-  
-        const userFromServer = await getChart();
-        setChart(userFromServer);
-      } catch (error) {
-        console.error("Error fetching chart:", error);
-      }
-    };
-  
-    fetchData();
-  }, [change]);
-
-const inChart = chart.products.find((product) => product.id === card.id);
 
   return (
     <div className="cardinChard">
@@ -70,6 +58,21 @@ const inChart = chart.products.find((product) => product.id === card.id);
     </div>
 
     <div className="cardinChard__container">
+
+      {!shouldRenderButton &&(
+         <div className="cardinChard__minicontainer">
+         <p className="modal__type">
+         {languageReducer.language 
+           ?('Was ordered:')
+           :("Було замовлено:")
+         }
+         </p>
+         <p className="modal__text">
+           {wasOrdered}
+         </p>
+       </div>
+      )}
+
       <div className="cardinChard__top">
           <div className="cardinChard__name">
           {languageReducer.language 
@@ -79,7 +82,7 @@ const inChart = chart.products.find((product) => product.id === card.id);
           </div>
 
           <div className="cardinChard__price">
-          {`₴${inChart?.total_price}`}
+          {`₴${card.price}`}
           </div>
         </div>
 
@@ -197,18 +200,20 @@ const inChart = chart.products.find((product) => product.id === card.id);
               </p>
             </div>
           )}
-            <button 
-              className="cardinChard__count--remove"
-              onClick={() => hendleActChart('remove')}
-            >
-              <p className="cardinChard__count--remove--dump" />
-              <h2 className="cardinChard__count--remove--text">
-                {languageReducer.language 
-                  ?('Remove')
-                  :("Видалити")
-                }
-              </h2>
-            </button>
+            {shouldRenderButton && (
+              <button 
+                className="cardinChard__count--remove"
+                onClick={() => hendleActChart('remove')}
+              >
+                <p className="cardinChard__count--remove--dump" />
+                <h2 className="cardinChard__count--remove--text">
+                  {languageReducer.language 
+                    ?('Remove')
+                    :("Видалити")
+                  }
+                </h2>
+              </button>
+            )}
           </div>
       </div>
 

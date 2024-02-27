@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../../app/hooks";
 import { getBooking, getApi} from "../../../helpers/api";
-import { Modal } from "../Modal/Modal";
 
 import "./HistoryLogic.scss"
 import { NavLink } from "react-router-dom";
 import { BookingItem } from "../../../helpers/BookingInterface";
 import { ApiInterface } from "../../../helpers/ApiInterface";
+import { CardinChard } from "../CardinChard/CardinChard";
 
 export const HistoryLogic = () => {
   const [cherwood, setCherwood] = useState<BookingItem[]>([{ id: 0, total: '', created_at: '', order_items: [] }]);
@@ -40,9 +40,22 @@ export const HistoryLogic = () => {
       })
   }, []);
 
-  const filteredCherwood = api.filter(item => {
-    return cherwood.some(cherwoodItem => cherwoodItem.order_items && cherwoodItem.order_items.includes(item.id));
-});
+  console.log("API:", api);
+  console.log("Cherwood:", cherwood);
+  const filteredCherwood: ApiInterface[] = api.length > 0 && cherwood.length > 0
+    ? api
+      .filter(item => cherwood.some(booking => booking.order_items && booking.order_items.includes(item.id)))
+      .map(item => {
+        const booking = cherwood.find(booking => booking.order_items && booking.order_items.includes(item.id));
+        console.log("Booking:", booking);
+        return {
+          ...item,
+          get_date: booking ? booking.created_at : '',
+        };
+      })
+    : [];
+  
+  console.log("Filtered Cherwood:", filteredCherwood);
 
   return (
     <div className="historyLogic">
@@ -53,54 +66,9 @@ export const HistoryLogic = () => {
         }
       </h1>
 
-  {filteredCherwood.length > 0 ?
+    {filteredCherwood.length > 0 ?
         filteredCherwood.map(card => (
-          <div className="historyLogic__chard cardinChard" key={card.id}>
-            <img 
-              alt="cardImg" 
-              className="cardinChard__img"
-              onClick={hendlModal}
-            />
-
-            <div className="cardinChard__container historyLogic__container">
-              <div className="cardinChard__top">
-                <div className="cardinChard__name">
-                  {languageReducer.language ? card.name : card.name_eng}
-                </div>
-
-                <div className="cardinChard__price">
-                  {`₴${card.price}`}
-                </div>
-              </div>
-
-              <div className="cardinChard___descr">
-                <div className="modal__minicontainer2">
-                  <p className="modal__type">
-                    {languageReducer.language ? 'Wight:' : 'Bara:'}
-                  </p>
-                  <p className="modal__number">{card.width}</p>
-
-                  <p className="modal__slash">/</p>
-
-                  <p className="modal__type">
-                    {languageReducer.language ? 'Height:' : 'Висота:'}
-                  </p>
-                  <p className="modal__number">{card.height}</p>
-                </div>
-
-                <div className="modal__minicontainer2">
-                  <p className="modal__type">
-                    {languageReducer.language ? 'Material:' : 'Матеріал:'}
-                  </p>
-                  <p className="modal__text">
-                    {languageReducer.language ? card.material_eng : card.material}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {isSelect && <Modal card={card} hendlCloseModal={hendlModal} />}
-          </div>
+          <CardinChard card={card} handleRemove={hendlModal} wasOrdered={card.get_date} key={card.id}/>
         ))
         : 
         <div className="historyLogic__empty">

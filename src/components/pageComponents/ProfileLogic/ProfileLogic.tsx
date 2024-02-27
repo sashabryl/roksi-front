@@ -26,7 +26,7 @@ export const ProfileLogic: React.FC<Props> = ({profile}) => {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    navigate('/');
+    navigate('/mainPage');
 
     setTimeout(() => {
       LogOut(registrationReducer.registration.access);
@@ -35,7 +35,7 @@ export const ProfileLogic: React.FC<Props> = ({profile}) => {
         refresh: '',
       }));
     }, 1000);
-  };
+  }; 
 
   useEffect(() => {
     const handleResize = () => {
