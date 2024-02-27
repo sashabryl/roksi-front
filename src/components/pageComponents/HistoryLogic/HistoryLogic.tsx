@@ -9,7 +9,7 @@ import { ApiInterface } from "../../../helpers/ApiInterface";
 import { CardinChard } from "../CardinChard/CardinChard";
 
 export const HistoryLogic = () => {
-  const [cherwood, setCherwood] = useState<BookingItem[]>([{ id: 0, total: '', created_at: '', order_items: [] }]);
+  const [cherwood, setCherwood] = useState<BookingItem[]>([{ id: 0, get_date: '', product: 0, quantity: 0, calculate_total: 0}]);
   const [api, setApi] = useState<ApiInterface[]>([]);
   const [isSelect, setIsSelect] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
@@ -40,22 +40,16 @@ export const HistoryLogic = () => {
       })
   }, []);
 
-  console.log("API:", api);
-  console.log("Cherwood:", cherwood);
-  const filteredCherwood: ApiInterface[] = api.length > 0 && cherwood.length > 0
-    ? api
-      .filter(item => cherwood.some(booking => booking.order_items && booking.order_items.includes(item.id)))
-      .map(item => {
-        const booking = cherwood.find(booking => booking.order_items && booking.order_items.includes(item.id));
-        console.log("Booking:", booking);
-        return {
-          ...item,
-          get_date: booking ? booking.created_at : '',
-        };
-      })
-    : [];
-  
-  console.log("Filtered Cherwood:", filteredCherwood);
+  let filteredCherwood:ApiInterface[] = []
+
+  if (cherwood.length !== 0 || api.length !==0) {
+    cherwood.forEach(cherwoodItem => {
+      const filteredItems = api
+        .filter(item => item.id === cherwoodItem.product)
+        .map(item => ({ ...item, get_date: cherwoodItem.get_date }));
+        filteredCherwood = filteredCherwood.concat(filteredItems);
+    });
+  }
 
   return (
     <div className="historyLogic">
@@ -67,8 +61,8 @@ export const HistoryLogic = () => {
       </h1>
 
     {filteredCherwood.length > 0 ?
-        filteredCherwood.map(card => (
-          <CardinChard card={card} handleRemove={hendlModal} wasOrdered={card.get_date} key={card.id}/>
+        filteredCherwood.map((card, index) => (
+          <CardinChard card={card} handleRemove={hendlModal} wasOrdered={card.get_date} key={index}/>
         ))
         : 
         <div className="historyLogic__empty">

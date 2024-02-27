@@ -22,8 +22,6 @@ export const CardinChard: React.FC<Props> = ({card, wasOrdered, handleRemove}) =
   
   const shouldRenderButton = location.pathname !== '/history';
 
-  console.log(wasOrdered ,'wasOrdered')
-
   const hendlModal = () => {
     setIsSelect(!isSelect);
   } 
