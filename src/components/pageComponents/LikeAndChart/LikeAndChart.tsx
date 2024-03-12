@@ -52,7 +52,7 @@ useEffect(() => {
         }
       };
   
-      const url = `http://127.0.0.1:8000/api/products/${id}/favourite/`;
+      const url = `https://roksi-back.fly.dev/api/products/${id}/favourite/`;
       await axios.post(url, null, config);
       setIsLike(!isLike)
     } catch (error) {
@@ -69,7 +69,7 @@ const handleChart = async () => {
       action: currentAction,
     };
 
-    const url = 'http://127.0.0.1:8000/api/cart/';
+    const url = 'https://roksi-back.fly.dev/api/cart/';
 
     await axios.post(url, data);
 

@@ -106,7 +106,7 @@ export const OrderForm = () => {
       });
     } else {
       try {
-        const url = 'http://127.0.0.1:8000/api/orders/';
+        const url = 'https://roksi-back.fly.dev/api/orders/';
   
         const orderData = {
           email: email,

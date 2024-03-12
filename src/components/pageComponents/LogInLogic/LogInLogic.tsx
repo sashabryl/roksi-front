@@ -63,7 +63,7 @@ export const LogInLogic = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/user/login/', {
+      const response = await axios.post('https://roksi-back.fly.dev/api/user/login/', {
         email: values.email,
         password: values.password,
       });

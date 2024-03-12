@@ -9,7 +9,7 @@ import { store } from "../app/store";
 import { addRegistrationAction } from "../app/slice/RegistrSlice";
 
 export async function getApi(): Promise<ApiInterface[]> {
-  const apiUrl = 'http://127.0.0.1:8000/api/products/';
+  const apiUrl = 'https://roksi-back.fly.dev/api/products/';
 
   return fetch(apiUrl)
     .then(response => {
@@ -33,7 +33,7 @@ export const LogOut = async (access) => {
       refresh: access,
     };
 
-    const url = 'http://127.0.0.1:8000/api/user/logout/'; 
+    const url = 'https://roksi-back.fly.dev/api/user/logout/';
     await axios.post(url, data, {
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const LogOut = async (access) => {
 };
 
 export async function getChart(): Promise<CartItem> {
-  const apiUrl = 'http://127.0.0.1:8000/api/cart/';
+  const apiUrl = 'https://roksi-back.fly.dev/api/cart/';
 
   return fetch(apiUrl)
     .then(response => {
@@ -67,7 +67,7 @@ export async function getChart(): Promise<CartItem> {
 
 
 export async function getUser(access: string, dispatch): Promise<UserType | undefined> {
-  const apiUrl = 'http://127.0.0.1:8000/api/user/me/';
+  const apiUrl = 'https://roksi-back.fly.dev/api/user/me/';
   const headers = {
     Authorize: `Bearer ${access}`,
   };
@@ -83,7 +83,7 @@ export async function getUser(access: string, dispatch): Promise<UserType | unde
     if (jsonData.detail === 'Given token not valid for any token type') {
       const refreshToken = store.getState().registration.registration.refresh;
 
-      const refreshUrl = 'http://127.0.0.1:8000/api/user/token-refresh/';
+      const refreshUrl = 'https://roksi-back.fly.dev/api/user/token-refresh/';
 
       const refreshHeaders = {
         Authorization: `Bearer ${refreshToken}`,
@@ -123,7 +123,7 @@ export async function getUser(access: string, dispatch): Promise<UserType | unde
 }
 
 export async function getBooking(access): Promise<BookingItem[] | undefined> {
-  const apiUrl = 'http://127.0.0.1:8000/api/orders/';
+  const apiUrl = 'https://roksi-back.fly.dev/api/orders/';
 
   const accessToken = access;
 
@@ -153,7 +153,7 @@ export async function getBooking(access): Promise<BookingItem[] | undefined> {
 }
 
 export async function getOptions(): Promise<Option[]> {
-  const apiUrl = 'http://127.0.0.1:8000/api/categories/';
+  const apiUrl = 'https://roksi-back.fly.dev/api/categories/';
 
   return fetch(apiUrl)
     .then(response => {
@@ -178,7 +178,7 @@ export const handleChart = async (currentAction: string, id: number) => {
       action: currentAction,
     };
 
-    const url = 'http://127.0.0.1:8000/api/cart/';
+    const url = 'https://roksi-back.fly.dev/api/cart/';
 
     await axios.post(url, data);
   } catch (error) {
