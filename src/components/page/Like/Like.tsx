@@ -67,7 +67,7 @@ useEffect(() => {
         />
         </div>
 
-       {user?.favourites
+       {user?.favourites !== undefined && user?.favourites.length > 0
         ?(
           <div className="modal__items">
             {favoriteCherwood.map((item)=> (

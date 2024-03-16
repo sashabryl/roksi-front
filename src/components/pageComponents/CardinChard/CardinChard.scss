@@ -34,6 +34,7 @@
   &__headCont {
     height: 419px;
     width: 419px;
+    margin-bottom: 40px;
 
     @include onPhone {
       width: 150px;
@@ -45,6 +46,7 @@
       flex-direction: row;
       align-items: center;
       padding-right: 16px;
+      margin-bottom: 20px;
     }
   }
 

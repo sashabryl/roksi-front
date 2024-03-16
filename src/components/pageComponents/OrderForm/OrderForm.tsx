@@ -128,14 +128,6 @@ export const OrderForm = () => {
 
   return (
     <div className="orderForm">
-     {windowWidth > 780 &&( 
-     <div className="orderForm__header">
-       {languageReducer.language 
-          ?('Contacts')
-          :('Контакти')
-        }
-      </div>)}
-
       <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox">
           <div className="signUpLogic__miniContainer">
@@ -416,7 +408,7 @@ export const OrderForm = () => {
           }
         </div>
       )}
-      <div className="orderForm__container">
+      {/* <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox orderForm__inputBox--border">
         {windowWidth < 780 &&(
         <div className="orderForm__total--cont">
@@ -456,6 +448,10 @@ export const OrderForm = () => {
             }
         </div>)}
         
+
+        
+        </div>
+      </div> */}
         <div className="orderForm__button--cont">
           <button
             className="
@@ -473,9 +469,6 @@ export const OrderForm = () => {
           <p className="signUpLogic__button2--arr" />
           </button>
         </div>
-        
-        </div>
-      </div>
     </div>
   );
 }
