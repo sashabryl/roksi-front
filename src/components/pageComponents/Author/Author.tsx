@@ -25,7 +25,7 @@ export const Author = () => {
         <h3 className="author__text3">
           {languageReducer.language 
             ?('Roksolana Hrydzuk')
-            :('Роксолана Гридзюк')
+            :('Роксолана Гриджук')
           }
         </h3>
       </div>

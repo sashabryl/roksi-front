@@ -8,7 +8,7 @@
 
   &__top {
     width: 413px;
-    height: 419px;
+    height: 440px;
     position: relative;
 
     @include onPhone {
@@ -46,7 +46,7 @@
 
     @include onPhone {
       left: 5px;
-      bottom: 5px;
+      bottom: 7px;
       width: 24px;
       height: 24px;
     }
@@ -68,10 +68,10 @@
     background-color: transparent;
 
     @include onPhone {
-      right: 5px;
+      right: 10px;
       bottom: 5px;
-      width: 11.6px;
-      height: 12px;
+      width: 14px;
+      height: 13px;
     }
 
     &--cont {
