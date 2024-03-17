@@ -30,4 +30,8 @@ a {
 
   background-repeat: no-repeat;
   background-size: contain;
+
+  @include onPhone {
+    margin-right: 16px;
+  }
 }

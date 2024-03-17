@@ -45,7 +45,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: 130%; 
-    color: $text2Color;
+    color: $gray4;
+    margin-bottom: 142px;
+
+    @include onPhone {
+      margin-bottom: 56px;
+      width: 243px;
+      text-align: center;
+    }
   }
 
   &__email {

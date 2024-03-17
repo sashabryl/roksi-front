@@ -123,7 +123,7 @@ export async function getUser(access: string, dispatch): Promise<UserType | unde
 }
 
 export async function getBooking(access): Promise<BookingItem[] | undefined> {
-  const apiUrl = 'http://127.0.0.1:8000/api/order/orders/';
+  const apiUrl = 'http://127.0.0.1:8000/api/orders/';
 
   const accessToken = access;
 
