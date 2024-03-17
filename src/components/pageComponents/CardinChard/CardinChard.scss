@@ -27,13 +27,13 @@
 
     @include onPhone {
       width: 140px;
-      height: 140px;
+      height: 150px;
     }
   }
 
   &__headCont {
     height: 419px;
-    width: 419px;
+    width: 370px;
     margin-bottom: 40px;
 
     @include onPhone {

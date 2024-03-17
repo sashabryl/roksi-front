@@ -8,11 +8,11 @@
 
   &__top {
     width: 413px;
-    height: 440px;
+    height: 480px;
     position: relative;
 
     @include onPhone {
-      height: 150px;
+      height: 155px;
       width: 140px;
     }
   }
