@@ -18,7 +18,6 @@ export const ChartLogic: React.FC<Props> = ({isOrder}) => {
   const [chart, setChart] = useState<CartItem>({ products: [], cart_total_price: 0 });
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [api, setApi] = useState<ApiInterface[]>([]);
-  const [prev, setsetPrev] = useState(1);
   const [change, setChange] = useState(false);
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);

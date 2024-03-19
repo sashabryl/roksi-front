@@ -113,7 +113,7 @@ export const SignUpLogic = () => {
     <div className="signUpLogic">
       <h1 className="signUpLogic__header">
         {languageReducer.language
-          ? 'Sign up'
+          ? 'Sign Up'
           : 'Peєcтpaцiя'}
       </h1>
 

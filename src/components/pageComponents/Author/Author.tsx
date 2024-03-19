@@ -16,7 +16,7 @@ export const Author = () => {
 
         <h2 className="author__text2">
           {languageReducer.language 
-            ?('Get a premium painting as a decoration for your interior or gift someone')
+            ?('Get a premium painting as a decoration for your interior or a gift for someone')
             :('Отримайте картину преміум-класу як прикрасу інтер\'єру або подарунок комусь')
           }
         </h2>
@@ -40,7 +40,7 @@ export const Author = () => {
 
         <h2 className="author__text2">
           {languageReducer.language 
-            ?('If you are interested in any of paintings or want a custom one, send me an instagram or email and we work it out')
+            ?('If you are interested in any of my paintings or want a custom one, send me an instagram or email and we can work it out')
             :('Якщо вас зацікавила будь-яка з картин або ви хочете зробити її на замовлення, надішліть мені Instagram або електронну пошту, і ми це розробимо')
           }
         </h2>
