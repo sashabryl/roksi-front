@@ -67,19 +67,6 @@
     text-align: center;
   }
 
-  &__cross {
-    background-image: url("../../../img/Cross.svg");
-    width: 24px;
-    height: 24px;
-
-    background-color: $whiteColor;
-    border: none;
-    cursor: pointer;
-
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
   &__container {
     padding: 10px 12px;
     background-color: $whiteColor;

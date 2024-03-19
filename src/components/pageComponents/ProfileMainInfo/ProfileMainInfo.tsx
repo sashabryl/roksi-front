@@ -63,7 +63,7 @@ export const ProfileMainInfo:React.FC<Props> = ({noProfile}) => {
         }
       };
   
-      const url = 'http://127.0.0.1:8000/api/user/me/';
+      const url = 'https://roksi-back.fly.dev/api/user/me/';
   
       const requestData = {
         first_name: firstName,

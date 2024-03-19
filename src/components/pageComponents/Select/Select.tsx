@@ -3,7 +3,6 @@ import "./Select.scss";
 import { getOptions } from "../../../helpers/api";
 import { useAppSelector } from "../../../app/hooks";
 import { useSearchParams } from "react-router-dom";
-import classNames from "classnames";
 
 
 export const Select = () => {
