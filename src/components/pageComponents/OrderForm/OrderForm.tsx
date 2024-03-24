@@ -400,14 +400,14 @@ export const OrderForm = () => {
       </div>
       </div>
 
-      {windowWidth > 780 &&(
+      {/* {windowWidth > 780 &&(
         <div className="orderForm__header">
         {languageReducer.language 
             ?('Payment')
             :('Платіж')
           }
         </div>
-      )}
+      )} */}
       {/* <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox orderForm__inputBox--border">
         {windowWidth < 780 &&(
