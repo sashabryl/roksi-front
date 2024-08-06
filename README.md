@@ -1,8 +1,7 @@
 Mockup Link: [Design](https://www.figma.com/file/qGbvAK0prf7uBS7vFREJfF/Artist?type=design&node-id=1368%3A1815&mode=dev)
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Backend: [Link](https://github.com/sashabryl/roksi-back)
+Demo: [Link](https://sashabryl.github.io/roksi-front/)
+## This project will not run without a backend
 
 ## Available Scripts
 
