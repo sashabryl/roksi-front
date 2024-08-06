@@ -1,7 +1,7 @@
 Mockup Link: [Design](https://www.figma.com/file/qGbvAK0prf7uBS7vFREJfF/Artist?type=design&node-id=1368%3A1815&mode=dev)
+
 Backend: [Link](https://github.com/sashabryl/roksi-back)
-Demo: [Link](https://sashabryl.github.io/roksi-front/)
-## This project will not run without a backend
+
 
 ## Available Scripts
 
