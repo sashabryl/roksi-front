@@ -4,7 +4,7 @@
 
 ### Backend: [Link](https://github.com/sashabryl/roksi-back)
 
-### Description: Roksi is an online store dedicated to showcasing and selling unique products crafted by an artist. The front-end of the site is developed using TypeScript, React.js, combined with SASS (SCSS) modules for styling. The development process followed the Scrum methodology, ensuring an agile and collaborative approach. The site is connected to a robust backend, allowing dynamic interactions and seamless management of product data, orders, and customer interactions. The frontend efficiently communicates with the backend, providing users with a smooth and responsive shopping experience.
+### Description: Roksi is an online store dedicated to showcasing and selling unique products crafted by an artist. The site's front-end is developed using TypeScript, React.js, combined with SASS (SCSS) modules for styling. The development process followed the Scrum methodology, ensuring an agile and collaborative approach. The site is connected to a robust back-end, allowing dynamic interactions and seamless management of product data, orders, and customer interactions. The front-end efficiently communicates with the backend, providing users with a smooth and responsive shopping experience.
 
 ## Available Scripts
 
