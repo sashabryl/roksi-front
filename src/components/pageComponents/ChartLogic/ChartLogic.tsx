@@ -83,7 +83,10 @@ const inChart = api.filter((product) => chart.products.some((productId) => produ
         <BackButton/>
 
         <p className="chart__page">
-          {`${prev}/2`}
+          {isOrder ?
+          `2/2`
+          : `1/2`
+          }
         </p>
       </div>
 
