@@ -115,7 +115,7 @@ export const HomePage = () => {
       <div className="home__items">
         <h1 className="home__items--header">
           {languageReducer.language 
-            ?('This is only tip of the iceberg')
+            ?('This is only the tip of the iceberg')
             :('Це лише верхівка айсберга')
           }
         </h1>

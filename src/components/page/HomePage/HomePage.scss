@@ -100,7 +100,7 @@
       height: 44px;
       position: absolute;
       z-index: 1;
-      bottom: 155px;
+      bottom: 200px;
       right: 0;
     }
   }
@@ -117,7 +117,7 @@
   }
 
     @include onPhoneMini {
-      margin: 350px 0 0 16px;
+      margin: 390px 0 0 16px;
    }
   }
 
@@ -137,7 +137,7 @@
     color: $grayColor;
 
     @include onPhone {
-      font-size: 14px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 120%;
@@ -155,7 +155,7 @@
     width: 321px;
 
     @include onPhone {
-      font-size: 11px;
+      font-size: 13px;
       font-style: normal;
       font-weight: 400;
       line-height: 130%;
@@ -174,13 +174,13 @@
     background-color: $yellow;
     border: none;
     border-radius: 50px;
-    width: 298px;
+    width: 321px;
     height: 72px;
     cursor: pointer;
 
     @include onPhone {
       padding: 7px;
-      width: 148px;
+      width: 185px;
       height: inherit;
    }
 
@@ -192,10 +192,10 @@
       font-weight: 500;
       line-height: 120%;
       color: $blackColor;
-      margin-right: 93px;
+      margin-right: 85px;
 
       @include onPhone {
-        margin-right: 22px;
+        margin-right: 55px;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -209,6 +209,7 @@
       border-radius: 100px;
       padding: 15px;
       border: none;
+      cursor: pointer;
 
       @include onPhone {
         padding: 7px;
@@ -257,7 +258,7 @@
     &--cont {
       display: flex;
       flex-wrap: nowrap;
-      overflow: scroll;
+      overflow: auto;
       justify-content: space-between;
       gap: 33px;
 

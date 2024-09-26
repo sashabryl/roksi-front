@@ -90,7 +90,7 @@ export const SignUpLogic = () => {
       });
     } else {
       try {
-        await axios.post('http://127.0.0.1:8000/api/user/register/', {
+        await axios.post('https://roksi-back.fly.dev/api/user/register/', {
           email: values.email,
           password: values.password,
           confirm_password: values.confirm_password,
@@ -113,7 +113,7 @@ export const SignUpLogic = () => {
     <div className="signUpLogic">
       <h1 className="signUpLogic__header">
         {languageReducer.language
-          ? 'Sign up'
+          ? 'Sign Up'
           : 'Peєcтpaцiя'}
       </h1>
 
