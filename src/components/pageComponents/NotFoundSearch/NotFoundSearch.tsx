@@ -1,18 +1,24 @@
-import { useSearchParams } from "react-router-dom";
-
+import { useAppSelector } from "../../../app/hooks";
 import "./NotFoundSearch.scss";
 
 export const NotFoundSearch = () => {
-  const [searchQuery] = useSearchParams();
-  const search = searchQuery.get('query')|| '';
+  const languageReducer = useAppSelector((state) => state.language);
 
   return (
     <div className="any">
       <p className="any__dandruff"/>
 
-      <h1 className="any__found">{`No “${search}” found`}</h1>
+      <h1 className="any__found">
+       {languageReducer.language
+          ? 'Not found'
+          : 'Не знайдено'
+        }
+        </h1>
       <h2 className="any__found--descr">
-        We couldn't find any catalog matching your query. Try another query
+        {languageReducer.language
+          ? 'We couldn\'t find any catalog. '
+          : 'Ми не змогли знайти жодного каталогу.'
+        }
       </h2>
     </div>
   );

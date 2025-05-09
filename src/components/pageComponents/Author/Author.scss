@@ -11,14 +11,11 @@
  }
 
   &__top {
-    margin-bottom: 174px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     
     @include onPhone {
-      margin-bottom: 96px;
       margin-top: 54px;
    }
   }
@@ -41,7 +38,7 @@
     color: $blackColor;
 
     @include onPhone {
-      font-size: 15px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 120%;
@@ -60,7 +57,7 @@
     margin: 0;
 
     @include onPhone {
-      font-size: 12px;
+      font-size: 14px;
       font-style: normal;
       font-weight: 400;
       line-height: 130%;
@@ -69,7 +66,7 @@
   }
 
   &__text3 {
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
@@ -77,11 +74,76 @@
     margin: 0;
   }
 
+  &__text4 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: $borderHoverColor;
+    margin: 64px 276px;
+
+    @include onDesktop {
+      margin: 32px 35px 42px;
+    }
+
+    @include onPhone {
+      margin: 32px 0 42px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+   }
+
+    &--p {
+      margin: 0;
+    }
+    
+    &--ul {
+      list-style-type: none;
+      padding-left: 20px; 
+      margin: 16px 0;
+      
+      @include onPhone {
+        padding-left: 10px; 
+     }
+    }
+    
+    &--li {
+      position: relative;
+      padding-left: 20px; 
+
+      @include onPhone {
+        padding-left: 10px; 
+     }
+    }
+    
+     &--li::before {
+      content: ''; 
+      position: absolute;
+      left: 0;
+      top: 50%; 
+      width: 4px;
+      height: 4px;
+      background-color: $borderHoverColor;
+      border-radius: 50%;
+      transform: translateY(-50%);
+
+      @include onPhone {
+        width: 3px;
+        height: 2px;
+     }
+    }
+  }
+
   &__girl {
     background-image: url("../../../img/girl.png");
     width: 70px;
     height: 70px;
     margin: 24px 0 12px 0;
+
+    @include onPhone {
+      margin: 32px 0 12px 0;
+   }
   }
 
   &__container {

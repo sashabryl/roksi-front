@@ -80,7 +80,7 @@ export const CardinChard: React.FC<Props> = ({card, wasOrdered, handleRemove}) =
           </div>
 
           <div className="cardinChard__price">
-          {`₴${card.price}`}
+          {`$${card.price}`}
           </div>
         </div>
 

@@ -41,10 +41,11 @@
   &__buttonContainer {
     display: flex;
     justify-content: space-evenly;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     align-content: flex-end;
     flex-wrap: wrap;
+    width: 100%;
 
     margin-top: 85px;
 
@@ -142,11 +143,11 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin: 88px 0px 72px 0px;
+    margin: 0 0px 72px 0px;
     align-items: center;
 
     @include onPhone {
-      margin: 32px 0px 0px 0px;
+      margin: 0 0px 0px 0px;
     }
   }
 }

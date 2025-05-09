@@ -72,8 +72,8 @@ export const HomePage = () => {
             <NavLink to='/mainPage' className="home__button">
               <p className="home__button--text">
                 {languageReducer.language 
-                  ?('Go to shop')
-                  :('До магазину')
+                  ?('Go to gallery')
+                  :('Галерея')
                 }
               </p>
               <button className="home__button--button" >
@@ -86,8 +86,8 @@ export const HomePage = () => {
 
           <p className="home__text3">
             {languageReducer.language 
-              ?('Incredible stained glass on vases, painted glasses, and paintings')
-              :('Неймовірні вітражі на вазах, розписні скла, картини')
+              ?('Custom stained glass that comes to life under light, and oil paintings that tell their own stories')
+              :('Індивідуальні вітражі, що оживають під світлом, і олійні картини, які розповідають власні історії')
             }
           </p>
 
@@ -95,8 +95,8 @@ export const HomePage = () => {
             <NavLink to='/mainPage' className="home__button">
               <p className="home__button--text">
                 {languageReducer.language 
-                  ?('Go to shop')
-                  :('До магазину')
+                  ?('Go to gallery')
+                  :('Галерея')
                 }
               </p>
               <button className="home__button--button" >
@@ -115,7 +115,7 @@ export const HomePage = () => {
       <div className="home__items">
         <h1 className="home__items--header">
           {languageReducer.language 
-            ?('This is only tip of the iceberg')
+            ?('This is only the tip of the iceberg')
             :('Це лише верхівка айсберга')
           }
         </h1>

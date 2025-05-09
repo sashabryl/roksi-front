@@ -10,7 +10,7 @@
     width: 240px;
     height: 240px;
 
-    margin-bottom: 56px;
+    margin-bottom: 40px;
 
     background-image: url("../../../img/NotFoundSearch.svg");
     background-repeat: no-repeat;
@@ -19,7 +19,7 @@
     @include onPhone {
       width: 56px;
       height: 56px;
-      margin-bottom: 48px;
+      margin-bottom: 30px;
     }
   }
 

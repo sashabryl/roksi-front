@@ -62,7 +62,7 @@ export const Profile = () => {
           <p className="profile__img profile__sing"/>
           <div className="profile__text">
           {languageReducer.language 
-            ?('Sing up')
+            ?('Sing Up')
             :('Peєcтpaцiя')
           }
           </div>

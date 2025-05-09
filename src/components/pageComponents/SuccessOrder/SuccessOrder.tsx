@@ -35,7 +35,7 @@ export const SuccessOrder = () => {
         {windowWidth > 780 &&(<NavLink to='/' className="logo"/>)}
 
         <div className="chart__header--cont">
-        {(registrationReducer.registration.access || registrationReducer.registration.refresh) && (
+        {(registrationReducer.registration.access) && (
             <NavLink to="/favorites" className="header__favorites header__img" />
         )}
 
@@ -60,9 +60,8 @@ export const SuccessOrder = () => {
           }
         </h3>
         
-      <NavLink to="/" className="modal__button2 modal__button">
+      <NavLink to="/mainPage" className="modal__button2 modal__button">
           {languageReducer.language ? 'Go to shop' : 'Перейти в магазин'}
-          <p className="modal__arrow" />
       </NavLink>
 
       </div>

@@ -22,7 +22,7 @@
       gap: 60px;
 
       @include onPhone {
-        gap: 20px;
+        gap: 30px;
       }
 
       &--row-reverse {
@@ -83,7 +83,7 @@
         position: relative;
 
         @include onPhone {
-          margin-right: 20px;
+          border-radius: 8px;
           padding: 6px 9px;
         }
       }
@@ -123,7 +123,7 @@
       }
 
       @include onPhone {
-        padding: 4px;
+        padding: 2px;
       }
     }
 
@@ -172,6 +172,7 @@
       color: $blackColor;
       margin: 10px 0px;
       cursor: pointer;
+      text-align: center;
     }
 
     &__list {

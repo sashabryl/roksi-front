@@ -17,7 +17,7 @@ import ChartSlice from './slice/ChartSlice';
 const persistConfig = {
   key: 'roksi',
   storage,
-  whitelist: ['language', 'registration', 'chart',],
+  whitelist: ['language', 'registration', 'chart'],
 };
 
 const rootReducer = combineReducers({

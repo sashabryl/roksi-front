@@ -181,8 +181,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%;
-    color: $whiteColor;
+    line-height: 120%; 
+    color: $blackColor;
     margin: auto;
     cursor: pointer;
 
@@ -362,7 +362,7 @@
   &__arrow {
     width: 8px;
     height: 14px;
-    background-image: url("../../../img/RightArr.svg");
+    background-image: url("../../../img/RightArrBlack.svg");
     background-size: contain;
     background-repeat: no-repeat;
 

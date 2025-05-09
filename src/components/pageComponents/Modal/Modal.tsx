@@ -86,7 +86,7 @@ const handleChart = async () => {
       action: currentAction,
     };
 
-    const url = 'http://127.0.0.1:8000/api/cart/';
+    const url = 'https://roksi-back.fly.dev/api/cart/';
 
     await axios.post(url, data);
 
@@ -116,7 +116,7 @@ if (isInChart.products.length > 0) {
         </div>
 
       <div className="modal__carousel">
-        <Slide {...arrowButtons} duration={5000} indicators>
+        <Slide {...arrowButtons} duration={3000} indicators>
             {card.images.map((photo, index) => (
               <div key={index} className="each-slide">
                 <img 
@@ -183,8 +183,8 @@ if (isInChart.products.length > 0) {
 
           <button className="modal__button" onClick={handleChart}>
             {languageReducer.language 
-              ?('Buy now')
-              :("Купити зараз")
+              ?('Order')
+              :("Замовити")
             }
           </button>
         </div>

@@ -30,8 +30,8 @@
     cursor: pointer;
 
     @include onPhone {
-      padding: 6px 6px;
-      font-size: 13px;
+      padding: 6px 12px;
+      font-size: 16px;
       font-style: normal;
       font-weight: 400;
       line-height: 120%;
@@ -136,10 +136,6 @@
       width: 15px;
       height: 3px;
     }
-  }
-
-  &__container {
-    height: max-content;
   }
 
   &__top {

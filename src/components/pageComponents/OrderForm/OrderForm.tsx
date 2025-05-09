@@ -8,11 +8,13 @@ import classNames from "classnames";
 import axios from "axios";
 import countryArr from "../../../countries (3).json";
 import { CartItem } from "../../../helpers/ChartInterface";
+import { useNavigate } from "react-router";
 
 export const OrderForm = () => {
   const languageReducer = useAppSelector(state => state.language);
   const registrationReducer = useAppSelector(state => state.registration);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState<UserType>();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -104,7 +106,7 @@ export const OrderForm = () => {
       });
     } else {
       try {
-        const url = 'http://127.0.0.1:8000/api/order/create/';
+        const url = 'https://roksi-back.fly.dev/api/orders/';
   
         const orderData = {
           email: email,
@@ -115,28 +117,17 @@ export const OrderForm = () => {
           city: userCity,
         };
   
-        // Відправляємо запит POST
-        const response = await axios.post(url, orderData);
-  
-        // Отримуємо значення поля `link` з відповіді
-        const link = response.data.link;
-        
-        window.location.href = link;
+        await axios.post(url, orderData);
+
+        navigate('/success');
       } catch (error) {
-        console.error(error);
+        navigate('/mainPage');
       }
     }
   };
+
   return (
     <div className="orderForm">
-     {windowWidth > 780 &&( 
-     <div className="orderForm__header">
-       {languageReducer.language 
-          ?('Contacts')
-          :('Контакти')
-        }
-      </div>)}
-
       <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox">
           <div className="signUpLogic__miniContainer">
@@ -409,15 +400,15 @@ export const OrderForm = () => {
       </div>
       </div>
 
-      {windowWidth > 780 &&(
+      {/* {windowWidth > 780 &&(
         <div className="orderForm__header">
         {languageReducer.language 
             ?('Payment')
             :('Платіж')
           }
         </div>
-      )}
-      <div className="orderForm__container">
+      )} */}
+      {/* <div className="orderForm__container">
         <div className="profileLogic__inputBox orderForm__inputBox orderForm__inputBox--border">
         {windowWidth < 780 &&(
         <div className="orderForm__total--cont">
@@ -457,6 +448,10 @@ export const OrderForm = () => {
             }
         </div>)}
         
+
+        
+        </div>
+      </div> */}
         <div className="orderForm__button--cont">
           <button
             className="
@@ -468,24 +463,12 @@ export const OrderForm = () => {
           >
           {
             languageReducer.language
-              ? 'Go to pay'
-              : 'Перейти, щоб заплатити'
+              ? 'Create an order'
+              : 'Створити замовлення'
           }
           <p className="signUpLogic__button2--arr" />
           </button>
-
-          {windowWidth > 780 &&(
-          <div className="profileLogic__warning profileLogic__warning--black" >
-            {
-              languageReducer.language
-                ? 'The product will be successfully ordered only after full payment. Payment by card*'
-                : 'Товар буде успішно замовлений тільки після повної оплати. Оплата карткою*'
-            }
-        </div>)}
         </div>
-        
-        </div>
-      </div>
     </div>
   );
 }
